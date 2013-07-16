@@ -1,3 +1,4 @@
 App.Router.map ->
-  @resource('hellos')
-  @resource('hello', path: '/hellos/:hello_id');
+  @resource 'snapshots', ->
+    @resource 'snapshot',
+       path: ':snapshot_id'

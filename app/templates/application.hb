@@ -1,3 +1,3 @@
-<div class="hello">
+<div class="utilization">
   {{outlet}}
 </div>
