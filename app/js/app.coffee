@@ -18,7 +18,7 @@ window.App = Ember.Application.create({
 App.Store = DS.Store.extend
   revision: 12,
   adapter: DS.RESTAdapter.extend
-    url: 'http://localhost:3000'
+    url: 'http://localhost:5000'
 
 DS.RESTAdapter.reopen
   namespace: 'api/v1'
