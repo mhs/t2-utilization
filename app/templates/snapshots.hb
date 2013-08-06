@@ -4,7 +4,7 @@
       <h3>Snapshots</h3>
       <ul class="nav bs-sidenav">
         {{#each arrangedContent}}
-          <li>{{#linkTo 'snapshot' this}}{{ date snapDate }}{{/linkTo}} </li>
+        <li>{{#linkTo 'snapshot' this}}{{ date snapDate }} - {{ utilization }}%{{/linkTo}} </li>
         {{/each}}
       </ul>
     </div>

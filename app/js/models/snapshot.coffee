@@ -9,3 +9,6 @@ App.Snapshot = DS.Model.extend
   non_billing: DS.hasMany('App.Person')
   office_id: DS.attr('string')
 
+  utilization:(->
+    Math.round(100.0 * @get('billing.length') / @get('assignable.length'))
+  ).property('billing','assignable')
