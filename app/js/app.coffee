@@ -1,4 +1,4 @@
-window.App = Ember.Application.create({
+window.App = Ember.Application.create
   LOG_STACKTRACE_ON_DEPRECATION : true,
   LOG_BINDINGS                  : true,
   LOG_TRANSITIONS               : true,
@@ -6,11 +6,9 @@ window.App = Ember.Application.create({
   LOG_VIEW_LOOKUPS              : true,
   LOG_ACTIVE_GENERATION         : true,
 
-  rake: {
+  rake:
     routes: ->
-      console.log(Em.keys(App.Router.router.recognizer.names))
+      console.log Em.keys(App.Router.router.recognizer.names)
 
     templates: ->
-      console.log(Em.keys(Em.TEMPLATES))
-  }
-})
+      console.log Em.keys(Em.TEMPLATES)

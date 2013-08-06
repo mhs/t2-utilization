@@ -14,52 +14,15 @@
   </p>
 
 
-  <h3>Staff</h3>
-  <ul>
-    {{#each staff}}
-      <li>{{name}}</li>
-    {{/each}}
+  <ul class="nav nav-tabs">
+    <li><a href="#" data-tab="staff" {{action selectTab "staff"}}>Staff</a></li>
+    <li><a href="#" data-tab="overhead" {{action selectTab "overhead"}}>Overhead</a></li>
+    <li><a href="#" data-tab="billable" {{action selectTab "billable"}}>Billable</a></li>
+    <li><a href="#" data-tab="unassignable" {{action selectTab "unassignable"}}>Unassignable</a></li>
+    <li><a href="#" data-tab="assignable" {{action selectTab "assignable"}}>Assignable</a></li>
+    <li><a href="#" data-tab="billing" {{action selectTab "billing"}}>Billing</a></li>
+    <li><a href="#" data-tab="non_billing" {{action selectTab "non_billing"}}>Non-Billing</a></li>
   </ul>
 
-  <h3>Overhead</h3>
-  <ul>
-    {{#each overhead}}
-      <li>{{name}}</li>
-    {{/each}}
-  </ul>
-
-  <h3>Billable</h3>
-  <ul>
-    {{#each billable}}
-      <li>{{name}}</li>
-    {{/each}}
-  </ul>
-
-  <h3>Unassignable</h3>
-  <ul>
-    {{#each unassignable}}
-      <li>{{name}}</li>
-    {{/each}}
-  </ul>
-
-  <h3>Assignable</h3>
-  <ul>
-    {{#each assignable}}
-      <li>{{name}}</li>
-    {{/each}}
-  </ul>
-
-  <h3>Billing</h3>
-  <ul>
-    {{#each billing}}
-      <li>{{name}}</li>
-    {{/each}}
-  </ul>
-
-  <h3>Non-Billing</h3>
-  <ul>
-    {{#each non_billing}}
-      <li>{{name}}</li>
-    {{/each}}
-  </ul>
+  {{outlet tab}}
 </div>
