@@ -5,7 +5,8 @@ App.SnapshotRoute = Ember.Route.extend
       @render name,
         into: 'snapshot', outlet: 'tab'
 
-  setupController: (controller) ->
+  setupController: (controller, model) ->
+    controller.set 'model', model
     controller.set 'activeTab', 'staff'
 
   renderTemplate: ->
