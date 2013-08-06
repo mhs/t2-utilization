@@ -1,7 +1,13 @@
-<h1>Utilization Snapshots</h1>
-<ul>
-{{#each model}}
-<li>{{ snap_date }} </li>
-{{/each}}
-</ul>
-{{ outlet }}
+<div class="row">
+  <div class="col-lg-3">
+    <div class="bs-sidebar affix-top">
+      <h3>Snapshots</h3>
+      <ul class="nav bs-sidenav">
+        {{#each model}}
+          <li>{{#linkTo 'snapshot' this}}{{ date snapDate }}{{/linkTo}} </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  {{ outlet }}
+</div>

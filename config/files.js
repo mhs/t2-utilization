@@ -21,5 +21,11 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('files', {
       "vendor/js/ember-data.js",
       "vendor/js/**/*.js"
     ]
+  },
+  css: {
+    vendor: [
+      "vendor/css/bootstrap.css",
+      "vendor/css/**/*.css"
+    ]
   }
 });
