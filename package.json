@@ -1,11 +1,11 @@
 {
-  "name": "ember-template",
-  "title": "An HTML/JS/CSS app",
+  "name": "T2 Utilization",
+  "title": "Daily Utilization Reports for Neo",
   "version": "0.0.1",
   "private": true,
   "author": {
-    "name": "John Doe",
-    "company": "ACME, Inc."
+    "name": "Mike Doel",
+    "company": "Neo"
   },
   "dependencies": {
     "grunt-ember-handlebars": "0.6.0",
