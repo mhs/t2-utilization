@@ -1,4 +1,4 @@
 <div class="container">
-  <h1>Utilization Snapshots</h1>
+  <h1>Daily Neo Utilization Snapshots</h1>
   {{outlet}}
 </div>
