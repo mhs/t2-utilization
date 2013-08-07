@@ -1,5 +1,5 @@
 {
-  "name": "T2 Utilization",
+  "name": "T2_Utilization",
   "title": "Daily Utilization Reports for Neo",
   "version": "0.0.1",
   "private": true,
@@ -9,6 +9,10 @@
   },
   "dependencies": {
     "grunt-ember-handlebars": "0.6.0",
-    "lineman": ">= 0.11.1"
+    "lineman": ">= 0.11.6"
+  },
+  "engines": {
+    "node": "~>0.10.10",
+    "npm": "~>1.2.25"
   }
 }

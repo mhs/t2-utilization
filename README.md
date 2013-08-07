@@ -51,3 +51,8 @@ lineman run
 ```
 
 And then visit the page at [localhost:8000](http://localhost:8000) to verify that it works.
+
+
+## Deployment
+
+This app is deployed to http://t2-utilization.herokuapp.com using the lineman buildpack.
