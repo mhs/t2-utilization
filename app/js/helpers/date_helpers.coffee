@@ -1,2 +1,2 @@
 Ember.Handlebars.registerBoundHelper 'date', (date) ->
-  moment(date).format("MMMM DD, YYYY")
+  moment(Date(date)).format("MMMM DD, YYYY")
