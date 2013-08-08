@@ -1,5 +1,5 @@
 App.Snapshot = DS.Model.extend
-  snapDate: DS.attr('date')
+  snapDate: DS.attr('string')
   staff: DS.hasMany('App.Person')
   overhead: DS.hasMany('App.Person')
   billable: DS.hasMany('App.Person')
