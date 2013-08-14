@@ -25,9 +25,7 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend 'application
   #  }
 
   prependTasks:
-    dev: ["env:dev"]
-    dist: ["env:dist"]
-    common: ["ember_handlebars"]
+    common: ["ember_handlebars", "env"]
 
   removeTasks:
     common: "handlebars"
@@ -42,13 +40,10 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend 'application
         "generated/template/handlebars.js": "<%= files.template.handlebars %>"
 
   env:
-    dev:
-      env: "dev"
-      apiHost: "http://localhost:5000"
-
-    dist:
-      env: "dist"
-      apiHost: "http://t2api.herokuapp.com"
+    config:
+      env: process.env['APP_ENV'] || "dev"
+      apiHost: process.env['API_HOST'] || "http://localhost:5000"
+      oauthKey: process.env['OAUTH_KEY'] || "de92924d00c19567c3566d17fe2e783666fd05bcecea385b508b4a3e393dd204"
 
   watch:
     handlebars:
