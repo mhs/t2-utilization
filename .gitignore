@@ -5,4 +5,4 @@
 
 /dist
 /generated
-app/js/env.coffee
+libpeerconnection.log
