@@ -12,3 +12,7 @@ window.App = Ember.Application.create
 
     templates: ->
       console.log Em.keys(Em.TEMPLATES)
+
+Ember.RSVP.configure "onerror", (e) ->
+  console.log e.message
+  console.log e.stack
