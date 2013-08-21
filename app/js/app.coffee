@@ -16,3 +16,8 @@ window.App = Ember.Application.create
 Ember.RSVP.configure "onerror", (e) ->
   console.log e.message
   console.log e.stack
+
+ev = (emberId) ->
+  Ember.View.views["ember" + emberId]
+ec = (emberId) ->
+  ev(emberId).get "controller"
