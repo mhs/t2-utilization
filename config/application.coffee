@@ -52,3 +52,7 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend 'application
   concat:
     js:
       src: ["<banner:meta.banner>", "<%= files.js.vendor %>", 'generated/js/env.js', "<%= files.template.generated %>", "<%= files.coffee.generated %>", "<%= files.js.app %>"]
+
+  server:
+    web:
+      port: 7000
