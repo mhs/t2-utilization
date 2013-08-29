@@ -9,7 +9,3 @@ App.ApplicationRoute = Ember.Route.extend
     if !auth.get('isAuthenticated')
       transition.abort()
       auth.redirectToSignIn()
-
-  setupController: (controller, model) ->
-    @._super controller, model
-    controller.set 'env', ENV
