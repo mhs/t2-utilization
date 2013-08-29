@@ -18,6 +18,7 @@ App.AuthenticationController = Ember.ObjectController.extend
     match = location.href.match(/authentication_token=([a-zA-Z0-9]+)/)
     if (match)
       @set('accessToken', match[1])
+      location.href = location.origin
 
   accessTokenChanged: (->
     token = @get('accessToken')
