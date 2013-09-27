@@ -10,5 +10,9 @@ App.Snapshot = DS.Model.extend
   office_id: DS.attr('string')
 
   utilization:(->
-    Math.round(100.0 * @get('billing.length') / @get('assignable.length'))
+    assignables = @get('assignable.length')
+    if assignables > 0
+      Math.round(100.0 * @get('billing.length') / @get('assignable.length'))
+    else
+      0
   ).property('billing','assignable')
