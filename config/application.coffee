@@ -24,6 +24,7 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend 'application
   #    }
   #  }
 
+  enableSass: true
   prependTasks:
     common: ["ember_handlebars", "env"]
 
