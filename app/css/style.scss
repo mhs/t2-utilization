@@ -1,9 +1,9 @@
-@darkGray: #dedede;
-@lightGray: #efefef;
+$darkGray: #dedede;
+$lightGray: #efefef;
 
 .hello {
-  background-color: @lightGray;
-  border: 1px solid @darkGray;
+  background-color: $lightGray;
+  border: 1px solid $darkGray;
 }
 
 .content-wrapper {
