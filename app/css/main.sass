@@ -1,27 +1,26 @@
 @import colors
 @import helpers
 @import nav
-@import style
 @import url(http://weloveiconfonts.com/api/?family=entypo)
 // @import bourbon/bourbon
 
-#content-wrapper
+#content
   padding: 0 0 0 48px
 
 *
   box-sizing: border-box
 
-
 @mixin black-font
-  font-family: 'KievitOT-Black'
+  font-family: "myriad-pro", sans-serif
+  font-weight: 900
 
 @mixin regular-font
-  font-family: 'KievitOT-Regular'
-
+  font-family: "myriad-pro", sans-serif
+  font-weight: 600
 
 @mixin light-font
-  font-family: 'KievitOT-Light'
-
+  font-family: "myriad-pro", sans-serif
+  font-weight: 300
 
 @mixin clearfix
   &:after
@@ -31,15 +30,11 @@
     clear: both
     visibility: hidden
 
-
-
 html,body
   min-height: 100%
 
-
-header, nav
+header, .office-nav
   @include clearfix
-
 
 header
   padding-top: 15px
@@ -48,28 +43,23 @@ header
 canvas
   display: block
 
-
-#navigation
-  width: 50px
-  background-color: #505050
-  z-index: 9999
-  position: absolute
+.navigation-frame
+  position: fixed
   top: 0
-  left: 0
   bottom: 0
-
+  left: 0
+  z-index: 99
+  width: 48px
 
 #content
   width: 100%
   padding-left: 50px
-
 
 .container
   margin: auto
   max-width: 960px
   width: 96%
   @include clearfix
-
 
 #utilizationToggle
   display: block
@@ -84,19 +74,24 @@ canvas
   background: #FFFFFF
   font-size: 16px
   color: #C6C6C6
+  border: none
   line-height: 25px
   text-transform: uppercase
   text-decoration: none
   padding: 5px 10px
   margin-left: 20px
 
+  &:focus
+    outline: none
+
   &.snapshot-forecast-button-selected
     background: #2DCA7D
+    border: none
     color: #FFFFFF
     box-shadow: -4px 4px 0 0 #20B56B
 
-
-
+    &:focus
+    outline: none
 
 h1
   @include light-font
@@ -108,7 +103,7 @@ h1
 
 
 
-nav
+.office-nav
   width: 100%
   background: #F0F0F0
   border-top: 1px solid #DEDEDE
@@ -116,7 +111,7 @@ nav
   margin-bottom: 14px
 
 
-nav button
+.office-nav button
   @include regular-font
   float: left
   width: 12.5%
@@ -126,6 +121,10 @@ nav button
   color: #AAAAAA
   line-height: 18px
   border: 0
+  cursor: pointer
+
+  &:focus
+    outline: none
 
   &:hover
     color: #393939
@@ -137,7 +136,6 @@ nav button
 
 
   &.selectedOffice
-    // background-color: #FDFDFD
     @include black-font
     color: #393939
     outline: none
@@ -301,7 +299,6 @@ i
 ul
   padding-left: 0
   padding-bottom: 40px
-  width: 25%
 
 
 li
@@ -399,3 +396,6 @@ ul > li:nth-child(1)
   padding: 3px 6px
   color: #000000
   margin-bottom: 15px
+
+// snapshots css
+

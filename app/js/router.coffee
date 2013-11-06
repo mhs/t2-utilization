@@ -28,4 +28,3 @@ App.ApplicationRoute = Ember.Route.extend
         $('.navigation-frame nav.primary .bottom-content').prepend(new_entry)
     )
   )
-

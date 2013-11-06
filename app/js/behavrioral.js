@@ -1,5 +1,3 @@
-//= require utilization-chart
-
 $.fn.buttonClick = function(activeState) {
   $(this).click(function() {
     $(this).addClass(activeState);
