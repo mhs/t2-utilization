@@ -60,11 +60,12 @@
           <li>Firstname Lastname</li>
         </ul>
         <ul class="staffList">
-          <li><span class="doubleDigit numbers billing">14</span>Billing</li>
-          <li>Firstname Lastname</li>
-          <li>Firstname Lastname</li>
-          <li>Firstname Lastname</li>
-          <li>Firstname Lastname</li>
+          <li data-tab="billing"><span class="doubleDigit numbers billing">14</span>Billing</li>
+          <ul>
+            {{#each billing}}
+            <li>{{name}}</li>
+            {{/each}}
+        </ul>
         </ul>
         <ul class="staffList">
           <li><span class="doubleDigit numbers available">14</span>Available</li>
