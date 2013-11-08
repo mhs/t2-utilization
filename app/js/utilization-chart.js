@@ -1,4 +1,3 @@
-//= require behavioral
 
 
 // $(function (){
