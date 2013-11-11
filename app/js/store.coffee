@@ -1,9 +1,5 @@
-App.Store = DS.Store.extend
-  revision: 12,
-  adapter: DS.RESTAdapter.extend
-    url: window.ENV.apiHost
-
-DS.RESTAdapter.reopen
+App.ApplicationAdapter = DS.RESTAdapter.extend
   namespace: 'api/v1'
+  host: window.ENV.apiHost
 
-DS.RESTAdapter.configure "plurals", person: "people"
+App.ApplicationSerializer = DS.ActiveModelSerializer.extend()

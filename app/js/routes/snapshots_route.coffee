@@ -1,3 +1,4 @@
 App.SnapshotsRoute = Ember.Route.extend
   model: ->
-    App.Snapshot.find()
+    @get('store').findAll('snapshot')
+    #App.Snapshot.find()

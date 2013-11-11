@@ -1,12 +1,12 @@
 App.Snapshot = DS.Model.extend
   snapDate: DS.attr('string')
-  staff: DS.hasMany('App.Person')
-  overhead: DS.hasMany('App.Person')
-  billable: DS.hasMany('App.Person')
-  unassignable: DS.hasMany('App.Person')
-  assignable: DS.hasMany('App.Person')
-  billing: DS.hasMany('App.Person')
-  non_billing: DS.hasMany('App.Person')
+  staff: DS.hasMany('person')
+  overhead: DS.hasMany('person')
+  billable: DS.hasMany('person')
+  unassignable: DS.hasMany('person')
+  assignable: DS.hasMany('person')
+  billing: DS.hasMany('person')
+  non_billing: DS.hasMany('person')
   office_id: DS.attr('string')
 
   utilization:(->
