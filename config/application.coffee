@@ -49,7 +49,7 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend 'application
 
   watch:
     handlebars:
-      tasks: ["ember_handlebars:compile"]
+      tasks: ["ember_handlebars:compile", "concat:js"]
 
   concat:
     js:
