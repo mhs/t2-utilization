@@ -1,7 +1,6 @@
 App.Router.map ->
   @resource 'snapshots', ->
-    @resource 'snapshot',
-       path: ':snapshot_id'
+    @resource 'snapshot', {path: '/:snapshot_id'}
 
 App.ApplicationRoute = Ember.Route.extend
   beforeModel: (transition) ->
