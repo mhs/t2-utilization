@@ -1,11 +1,11 @@
 App.SnapshotsRoute = Ember.Route.extend
   model: ->
-    App.Snapshot.find()
+    @get('store').findAll('snapshot')
 
 App.SnapshotsIndexRoute = Ember.Route.extend
 
   model: ->
-    App.Snapshot.find()
+    @get('store').findAll('snapshot')
 
   afterModel: (model) ->
     @transitionTo('snapshot', model.get('firstObject'))
