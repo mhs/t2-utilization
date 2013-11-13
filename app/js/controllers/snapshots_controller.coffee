@@ -5,4 +5,4 @@ App.SnapshotsController = Ember.ArrayController.extend
     this.get("content")
   ).property("content")
 
-App.SnapshotController = Ember.ObjectController.extend
+App.SnapshotController = Ember.ObjectController.extend()
