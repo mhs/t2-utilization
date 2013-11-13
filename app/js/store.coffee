@@ -1,4 +1,4 @@
-App.ApplicationAdapter = DS.RESTAdapter.extend
+App.ApplicationAdapter = DS.ActiveModelAdapter.extend
   namespace: 'api/v1'
   host: window.ENV.apiHost
 
