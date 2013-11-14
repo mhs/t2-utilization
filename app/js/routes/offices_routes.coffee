@@ -47,6 +47,6 @@ App.OfficeRoute = Ember.Route.extend
       outlet: 'snapshot'
       controller: @controllerFor('snapshot')
 
-  serialize: (model)->
-    office: model.get('officeSlug')
-    date: model.get('snapshot.snapDate')
+  serialize: (model) ->
+    office_name: model.get('firstObject.officeSlug')
+    snap_date: model.get('firstObject.snapshot.snapDate')

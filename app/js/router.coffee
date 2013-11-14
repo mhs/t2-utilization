@@ -3,5 +3,5 @@ App.Router.map ->
     @resource 'snapshot', {path: ':snapshot_id'}
 
   @resource 'offices', ->
-    @resource 'office', {path: ':office_name'}
+    @resource 'office', {path: ':office_name/:snap_date'}
 
