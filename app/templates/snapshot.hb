@@ -1,11 +1,8 @@
 <div class="container">
   <div id="utilizationTable">
-    {{partial 'assignable'}}
-    {{partial 'billable'}}
-    {{partial 'billing'}}
-    {{partial 'overhead'}}
-    {{partial 'unassignable'}}
-    {{partial 'staff'}}
-    {{partial 'non_billing'}}
+    {{utilization-list property=staff title="Staff"}}
+    {{utilization-list property=billing title="Billing"}}
+    {{utilization-list property=assignable title="Available"}}
+    {{utilization-list property=unassignable title="Unavailable"}}
   </div>
 </div>
