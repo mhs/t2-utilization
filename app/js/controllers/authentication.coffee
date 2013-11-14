@@ -28,3 +28,19 @@ App.AuthenticationController = Ember.ObjectController.extend
     else
       delete localStorage.accessToken
   ).observes("accessToken")
+
+  currentUser: (->
+    person = {}
+    Ember.$.ajax({
+      # ASYNC MY BALLS
+      async: false,
+      url: "#{window.ENV.apiHost}/api/v1/profile.json",
+      dataType: 'json',
+      data: {},
+      success: (data) ->
+        person = data.person
+      }
+    )
+    person
+  ).property('accessToken')
+  
