@@ -16,7 +16,7 @@ App.chart = function (){
       strokeColor : "rgba(255,255,255,0)",
       pointColor : "rgba(151,187,205,1)",
       pointStrokeColor : "#fff",
-      data : [100,100,100,100,100,100,100]
+      data : [130,100,100,100,100,100,100]
     },
     {
       fillColor : "rgba(215,216,216,1)",
@@ -50,15 +50,15 @@ App.chart = function (){
     scaleOverlay : false,
 
     //Boolean - If we want to override with a hard coded scale
-    scaleOverride : true,
+    scaleOverride : false,
 
     //** Required if scaleOverride is true **
     //Number - The number of steps in a hard coded scale
-    scaleSteps : 90,
+    //scaleSteps : 90,
     //Number - The value jump in the hard coded scale
-    scaleStepWidth : 1,
+    //scaleStepWidth : 1,
     //Number - The scale starting value
-    scaleStartValue : 0,
+    //scaleStartValue : 0,
 
     //String - Colour of the scale line
     scaleLineColor : "rgba(255,255,255,0)",

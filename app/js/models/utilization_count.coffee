@@ -9,3 +9,13 @@ App.UtilizationCount = DS.Model.extend
   non_billing_count: DS.attr('number')
   office_id: DS.attr('number')
 
+  formattedDate: (-> moment(date).format("MMMM DD, YYYY")).property('date')
+
+  utilization:(->
+    assignables = @get('assignable_count')
+    if assignables > 0
+      Math.round(100.0 * @get('billing_count') / @get('assignable_count'))
+    else
+      0
+  ).property('billing_count','assignable_count')
+
