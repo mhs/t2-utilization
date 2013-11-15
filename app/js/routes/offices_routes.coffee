@@ -35,6 +35,7 @@ App.OfficeRoute = Ember.Route.extend
 
     @controllerFor('snapshot').set('model', model.get('snapshot'))
     @controllerFor('utilizationChart').set('model', model.get('utilizationCounts'))
+    @controllerFor('officeByOffice').set('model', model.get('byOfficeUtilizations'))
 
   renderTemplate: ->
     @_super(this, arguments) # Run the default renderTemplate logic
@@ -47,6 +48,11 @@ App.OfficeRoute = Ember.Route.extend
       into: 'office'
       outlet: 'snapshot'
       controller: @controllerFor('snapshot')
+
+    @render 'officeByOfficeTable',
+      into: 'office'
+      outlet: 'officeByOffice'
+      controller: @controllerFor('officeByOffice')
 
   serialize: (model) ->
     office_name: model.get('firstObject.officeSlug')
