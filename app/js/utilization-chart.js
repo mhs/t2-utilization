@@ -1,50 +1,4 @@
-App.chart = function (){
-
-  $('#utilizationGraph').attr('width', $('#content').width());
-
-  $(window).resize(function() {
-    $('#utilizationGraph').attr('width', $('#content').width());
-    var myNewChart = new Chart(ctx).Line(data,options);
-  });
-
-
-  var data = {
-    labels : ["","","","","","",""],
-    datasets : [
-      {
-      fillColor : "rgba(188,188,188,1)",
-      strokeColor : "rgba(255,255,255,0)",
-      pointColor : "rgba(151,187,205,1)",
-      pointStrokeColor : "#fff",
-      data : [130,100,100,100,100,100,100]
-    },
-    {
-      fillColor : "rgba(215,216,216,1)",
-      strokeColor : "rgba(220,220,220,0)",
-      pointColor : "rgba(220,220,220,1)",
-      pointStrokeColor : "#fff",
-      data : [80,80,80,80,80,80,80]
-    },
-    {
-      fillColor : "rgba(68,155,184,1)",
-      strokeColor : "rgba(220,220,220,0)",
-      pointColor : "rgba(220,220,220,1)",
-      pointStrokeColor : "#fff",
-      data : [65,63,70,75,56,80,70]
-    },
-    {
-      fillColor : "rgba(110,215,246,1)",
-      strokeColor : "rgba(255,255,255,1)",
-      pointColor : "rgba(151,187,205,1)",
-      pointStrokeColor : "#fff",
-      data : [45,48,40,60,50,62,65]
-    }
-    ]
-  };
-
-
-
-  var options = {
+App.chartOptions = {
 
     //Boolean - If we show the scale above the chart data
     scaleOverlay : false,
@@ -127,6 +81,15 @@ App.chart = function (){
     onAnimationComplete : null
 
   };
+
+App.drawChart = function (data, options){
+
+  $('#utilizationGraph').attr('width', $('#content').width());
+
+  $(window).resize(function() {
+    $('#utilizationGraph').attr('width', $('#content').width());
+    var myNewChart = new Chart(ctx).Line(data,options);
+  });
 
   var ctx = document.getElementById("utilizationGraph").getContext("2d");
   var myNewChart = new Chart(ctx).Line(data,options);

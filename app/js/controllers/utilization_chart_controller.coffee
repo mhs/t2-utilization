@@ -1,13 +1,12 @@
 App.UtilizationChartController = Ember.ArrayController.extend
-
   utilizationCounts: (->
     data =
-      billable:
-        data: @mapBy('billable_count')
-      available:
-        data: @mapBy('available_count')
       staff:
         data: @mapBy('staff_count')
+      available:
+        data: @mapBy('assignable_count')
+      billable:
+        data: @mapBy('billable_count')
       unavailable:
         data: @mapBy('unassignable_count')
   ).property('model.@each')
@@ -37,13 +36,24 @@ App.UtilizationChartController = Ember.ArrayController.extend
         pointStrokeColor : pointStrokeColor
   ).property()
 
+  chartExists: false
+
+  actions:
+    chartInserted: ->
+      @set('chartExists', true)
+
   chartData: (->
     counts = @get('utilizationCounts')
     styles = @get('chartStyles')
-    debugger
-    datasets = Ember.$.extend(counts, styles)
-    values = datasets[key] for key in Ember.keys(datasets)
+    mergedData = $.extend(true, counts, styles)
+    dataSets = []
+    dataSets.push(mergedData[key]) for key in Ember.keys(mergedData)
     data =
-      labels : ["","","",""],
-      datasets: datasets
+      labels : ["","","","","","","","","","",""]
+      datasets: dataSets
   ).property('utilizationCounts')
+
+  redrawChart: (->
+    if @get('chartExists')
+      App.drawChart(@get('chartData'), App.chartOptions)
+  ).observes('chartData', 'chartExists')

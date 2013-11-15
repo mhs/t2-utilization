@@ -1,3 +1,3 @@
 App.UtilizationChartView = Ember.View.extend
   didInsertElement: ->
-    App.chart()
+    @get('controller').send('chartInserted')
