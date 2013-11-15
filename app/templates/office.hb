@@ -1,3 +1,3 @@
 {{outlet utilizationChart}}
-{{outlet snapshot}}
 {{outlet officeByOffice}}
+{{outlet snapshot}}
