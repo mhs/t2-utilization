@@ -1,8 +1,12 @@
+  <div class = "utilization-sidebar">
+    <ul>
+      {{#each staffTypes }}
+      <li {{bind-attr class="active" data-filter-name=name}}>{{title}}</li>
+      {{/each}}
+    </ul>
+  </div>
 <div class="container">
   <div id="utilizationTable">
-    {{utilization-list property=staff title="Staff"}}
-    {{utilization-list property=billing title="Billing"}}
-    {{utilization-list property=assignable title="Available"}}
-    {{utilization-list property=unassignable title="Unavailable"}}
+    {{utilization-list property=filteredList title="Selected People"}}
   </div>
 </div>
