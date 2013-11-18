@@ -9,8 +9,6 @@ App.Snapshot = DS.Model.extend
   non_billing: DS.hasMany('person')
   office_id: DS.attr('string')
 
-  formattedSnapDate: (-> moment(date).format("MMMM DD, YYYY")).property('snapDate')
-
   utilization:(->
     assignables = @get('assignable.length')
     if assignables > 0
