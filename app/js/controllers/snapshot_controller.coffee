@@ -7,8 +7,13 @@ App.SnapshotController = Ember.ObjectController.extend
   filteredList: (->
     filterName = @get("filterName")
     @get(filterName)
-  ).property("filterName")
+  ).property("filterName", "office_id")
 
+  currentStaffType: (->
+    types = @get('staffTypes')
+    type = types.findBy('name', @get('filterName'))
+    type.title
+  ).property('filterName')
 
   staffTypes: (->
     makeType = (name, title) =>

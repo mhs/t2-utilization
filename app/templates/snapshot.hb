@@ -5,4 +5,4 @@
       {{/each}}
     </ul>
   </div>
-  {{utilization-list property=filteredList title="Selected People"}}
+  {{utilization-list property=filteredList title=currentStaffType}}

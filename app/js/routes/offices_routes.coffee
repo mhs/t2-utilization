@@ -31,7 +31,7 @@ App.OfficeRoute = Ember.Route.extend
   setupController: (controller, model) ->
     offices = @modelFor('offices')
     model = model.get('firstObject')
-    controller.set('model', offices.findProperty('id', model.get('officeId')))
+    controller.set('model', offices.findProperty('id', model.get('officeId').toString()))
 
     @controllerFor('snapshot').set('model', model.get('snapshot'))
     @controllerFor('utilizationChart').set('model', model.get('utilizationCounts'))
