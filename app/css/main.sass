@@ -2,10 +2,7 @@
 @import helpers
 @import nav
 @import url(http://weloveiconfonts.com/api/?family=entypo)
-// @import bourbon/bourbon
-
-#content
-  padding: 0 0 0 48px
+@import bourbon/bourbon
 
 *
   box-sizing: border-box
@@ -31,7 +28,12 @@
     visibility: hidden
 
 html,body
+  margin: 0
+  padding: 0
   min-height: 100%
+
+button
+  margin: 0
 
 header, .office-nav
   @include clearfix
@@ -52,8 +54,9 @@ canvas
   width: 48px
 
 #content
+  +clearfix
   width: 100%
-  padding-left: 50px
+  padding-left: 40px
 
 .container
   margin: auto
@@ -108,7 +111,7 @@ h1
   background: #F0F0F0
   border-top: 1px solid #DEDEDE
   border-bottom: 1px solid #DEDEDE
-  margin-bottom: 14px
+  margin-bottom: 30px
 
 
 .office-nav button
@@ -283,18 +286,46 @@ i
   width: 146px
   padding: 5px
 
-
-.utilizationTable
-  width: 76%
-  margin-top: 10px
-
+.staff-lists
+  +clearfix
 
 .staffList
+  @include black-font
   float:left
+  width: 100%
+  font-size: 24px
+  color: #2C2E2E
+  line-height: 36px
+  padding: 5px 0 5px
+  border-top: 4px solid #C6C6C6
+  border-bottom: 4px solid #C6C6C6
+
+  .numbers
+    @include regular-font
+    color: #fff
+    font-size: 14px
+    display: block
+    position: relative
+    bottom: 9px
+
+
+  .number-container
+    +size(28px)
+    position: relative
+    top: 6px
+    float: left
+    min-height: 28px
+    min-width: 28px
+    border-radius: 50%
+    margin: 0 10px 0 0
+    text-align: center
+    padding: 5px
+    background-color: #c0c0c0
 
 ul
   padding-left: 0
   padding-bottom: 40px
+  margin: 0
 
 li
   @include regular-font
@@ -305,33 +336,7 @@ li
   border-bottom: 1px solid #C6C6C6
 
 
-ul > li:nth-child(1)
-  @include black-font
-  font-size: 14px
-  color: #2C2E2E
-  line-height: 36px
-  padding-left: 0px
 
-  border-top: 4px solid #C6C6C6
-  border-bottom: 4px solid #C6C6C6
-
-
-.numbers
-  @include regular-font
-  background-color: #c0c0c0
-  color: #fff
-  font-size: 14px
-  border-radius: 23px
-  margin-right: 4px
-  line-height: 8px
-
-
-.singleDigit
-  padding: 2px 8px 4px 7px
-
-
-.doubleDigit
-  padding: 2px 5px 4px 5px
 
 
 .billing
@@ -347,24 +352,21 @@ ul > li:nth-child(1)
 
 
 #utilizationOverview
-  float: right
   background-color: #DF5137
-  width: 165px
-  margin-top: 26px
   box-shadow: -4px 4px 0 0 #9E3927
   padding: 17px
-  clear: right
   @include regular-font
   color: #ffffff
   font-size: 13px
 
-  .officeLocation
+  .office-location
     position: relative
     top: 3px
+    float: left
 
 
   .officeInfo
-    @include clearfix
+    +clearfix
     margin-bottom: 6px
 
     &:last-child
@@ -372,48 +374,63 @@ ul > li:nth-child(1)
 
 
 
-  .officePercentage
+  .office-percentage
     float: left
     @include regular-font
+    text-align: center
     background-color: #FF9481
     padding: 1px 6px 3px 6px
     margin-right: 7px
+    min-width: 38px
 
 
 
 
-.office-by-office
+.office-by-office, .office-title
   @include black-font
   @include clearfix
   text-transform: uppercase
   background-color: #fff
   font-size: 14px
   display: block
-  padding: 3px 6px
   color: #000000
   margin-bottom: 15px
+  float: right
+
+.office-title
+  padding: 5px
+  float: none
+  text-align: center
 
 // snapshots css
 
 .utilization-list
   float: left
-  width: 23%
+  width: 60%
 
 .utilization-sidebar
+  margin: 0 0 15px 0
   float: left
-  width: 13%
+  width: 100%
 
   .active
+    color: gray
     background: white
 
   ul
     li
+      color: white
+      width: 14.2857%
       background: gray
+      float: left
+      text-align: center
+      padding: 0
+      border-bottom: none
+
 
     li:nth-child(1)
       @include regular-font
       border-top: none
-      border-bottom: 1px solid #C6C6C6
       padding-left: 28px
       line-height: 32px
 

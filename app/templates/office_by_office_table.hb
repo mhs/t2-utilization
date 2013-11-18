@@ -1,13 +1,13 @@
 <div id="utilizationOverview">
-  <div class="office-by-office">
+  <div class="office-title">
     Office by Office
   </div>
   {{#each officeInfo}}
     <div class="officeInfo">
-      <div class="officePercentage">
+      <div class="office-percentage">
         {{percent utilization}}
       </div>
-      <div class="officeLocation">
+      <div class="office-location">
         {{name}}
       </div>
     </div>
