@@ -16,6 +16,7 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('files', {
   js: {
     vendor: [
       "vendor/js/jquery.js",
+      "vendor/js/jquery-ui-1.10.3.custom.js",
       "vendor/js/handlebars.runtime.js",
       "vendor/js/ember.js",
       "vendor/js/ember-data.js",
