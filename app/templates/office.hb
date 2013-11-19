@@ -1,11 +1,9 @@
 <div class="office-nav">
-    <div class="container">
-      {{#each officeButtons}}
-        <a {{bind-attr href=linkPath class=":button selectedOffice"}}>{{name}}
-        </a>
-      {{/each}}
-    </div>
-  </div>
+  {{#each officeButtons}}
+    <a {{bind-attr href=linkPath class=":button selectedOffice"}}>{{name}}
+    </a>
+  {{/each}}
+</div>
 {{outlet utilizationChart}}
 <div class="container">
   <div class="staff-lists">
