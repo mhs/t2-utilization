@@ -8,35 +8,41 @@ App.OfficesRoute = Ember.Route.extend
 
     @store.find('office')
 
-App.OfficesIndexRoute = Ember.Route.extend
-  model:(params) ->
+App.getOfficeSummary = (slugName, params) ->
     offices = @modelFor('offices')
-    office = offices.findProperty('slug',
-    @controllerFor('authentication').get('currentUser').office_slug)
+    office = offices.findProperty('slug', slugName)
+
     if !params.snap_date
       snap_date = moment(Date.now()).format("MMMM DD, YYYY")
     else
       snap_date = params.snap_date
-    @store.find('utilizationSummary', {office_id: office.get('id'), snap_date: snap_date})
+
+    if office.get('slug') == 'overview'
+      officeId = null
+    else
+      officeId = office.get('id')
+    @store.find('utilizationSummary', {office_id: officeId, snap_date: snap_date})
+
+App.OfficesIndexRoute = Ember.Route.extend
+  model:(params) ->
+    slugName = @controllerFor('authentication').get('currentUser').office_slug
+    App.getOfficeSummary.call(@, slugName, params)
+
   redirect: (model) ->
     @transitionTo 'office', model
 
 
 App.OfficeRoute = Ember.Route.extend
 
-  model:(params) ->
-    offices = @modelFor('offices')
-    office = offices.findProperty('slug', params.office_name)
-    if !params.snap_date
-      snap_date = moment(Date.now()).format("MMMM DD, YYYY")
-    else
-      snap_date = params.snap_date
-    @store.find('utilizationSummary', {office_id: office.get('id'), snap_date: snap_date})
+
+  model: (params) ->
+    slugName = params.office_name
+    App.getOfficeSummary.call(@, slugName, params)
 
   setupController: (controller, model) ->
     offices = @modelFor('offices')
     model = model.get('firstObject')
-    controller.set('model', offices.findProperty('id', model.get('officeId').toString()))
+    controller.set('model', offices.findProperty('slug', model.get('officeSlug')))
 
     @controllerFor('snapshot').set('model', model.get('snapshot'))
     @controllerFor('utilizationChart').set('model', model.get('utilizationCounts'))
