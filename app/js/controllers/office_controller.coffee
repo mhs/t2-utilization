@@ -20,16 +20,12 @@ App.OfficeController = Ember.ObjectController.extend
 
   officeSlugs: (->
     offices = @get('controllers.offices')
-    slugs = offices.mapProperty('slug')
-    slugs.push('overview')
-    slugs
+    offices.mapProperty('slug')
   ).property('controllers.offices.@each.slug')
 
   officeNames: (->
     offices = @get('controllers.offices')
-    names = offices.mapProperty('name')
-    names.push('Overview')
-    names
+    offices.mapProperty('name')
   ).property('controllers.offices.@each.name')
 
 

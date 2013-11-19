@@ -1,6 +1,11 @@
 
 App.OfficesRoute = Ember.Route.extend
   model: ->
+    @store.push 'office',
+      id: 1000
+      name: 'Overview'
+      slug: 'overview'
+
     @store.find('office')
 
 App.OfficesIndexRoute = Ember.Route.extend
