@@ -2,22 +2,19 @@
 @import helpers
 @import nav
 @import url(http://weloveiconfonts.com/api/?family=entypo)
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700)
 @import bourbon/bourbon
 
 *
   box-sizing: border-box
 
 @mixin black-font
-  font-family: "myriad-pro", sans-serif
-  font-weight: 900
+  font-family: "Montserrat", sans-serif
+  font-weight: 700
 
 @mixin regular-font
-  font-family: "myriad-pro", sans-serif
-  font-weight: 600
-
-@mixin light-font
-  font-family: "myriad-pro", sans-serif
-  font-weight: 300
+  font-family: "Montserrat", sans-serif
+  font-weight: 400
 
 @mixin clearfix
   &:after
@@ -97,7 +94,7 @@ canvas
     outline: none
 
 h1
-  @include light-font
+  @include regular-font
   font-weight: 400
   font-size: 30px
   color: #2C2E2E
@@ -234,7 +231,7 @@ h1
 
 
 h2
-  @include light-font
+  @include regular-font
   display: inline-block
   float: left
   font-weight: 400
@@ -428,6 +425,7 @@ li
       text-align: center
       padding: 0
       border-bottom: none
+      border-right: 1px solid white
 
 
     li:nth-child(1)
@@ -435,6 +433,9 @@ li
       border-top: none
       padding-left: 28px
       line-height: 32px
+
+    li:last-child
+      border-right: none
 
 
 
