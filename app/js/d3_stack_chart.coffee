@@ -50,6 +50,7 @@ App.d3StackChart = ->
         .append("svg:line")
         .attr("y2", height)
       xRule.transition().attr("transform", (d) -> "translate(#{xScale(d)}, 0)")
+      xRule.exit().remove()
 
       #add create week label groups
       weekLabels = svg.selectAll("g.week-label")
@@ -60,8 +61,10 @@ App.d3StackChart = ->
         .attr("width", 60)
         .attr("height", 40)
       newLabels.append("svg:text")
-        .text( (d) -> d3.time.format("%m-%d")(d))
         .attr("fill", "white")
         .attr("y", 20)
+      weekLabels.select("text")
+        .text( (d) -> d3.time.format("%m/%d")(d))
       weekLabels.transition().attr("transform", (d) -> "translate(#{xScale(d) - 20}, 20)")
+      weekLabels.exit().remove()
 
