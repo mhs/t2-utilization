@@ -1,10 +1,11 @@
 App.d3StackChart = ->
   margin = {top: 20, right: 20, bottom: 20, left: 20}
 
-  width = 960
   height = 400
   chart = (selection) ->
+    width = $(window).width() - margin.right - margin.left
     selection.each (data) ->
+      console.log "window width is #{width}"
       vals = data.mapProperty 'values'
       headCounts = vals[0].map (val, i) ->
         val.y + vals[1][i].y + vals[2][i].y + vals[3][i].y
@@ -19,10 +20,10 @@ App.d3StackChart = ->
       stack = d3.layout.stack()
         .values((d) -> d.values)
       svg = selection.selectAll("svg").data([data])
-      chartArea = svg.enter().append("svg")
-        .attr("width", width + margin.left + margin.right)
+      svg.enter().append("svg").append("g").attr("class", "chart")
+      svg.attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-        .append("g").attr("class", "chart")
+      svg.select("g.chart")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
       myLayers = stack(data)
       myData = myLayers.mapProperty 'values'

@@ -3,15 +3,9 @@ App.D3StackChartComponent = Ember.Component.extend
 
   didInsertElement: ->
     Ember.run.once @, 'update'
-    @bindWindowResize()
-
-  resizeTimer: null
-
-  bindWindowResize: =>
     $(window).on 'resize', =>
-      window.clearTimeout(@resizeTimer)
-      @resizeTimer = setTimeout( @update, 100)
-      true
+      Ember.run.debounce @, @update, 100
+
 
   update: (->
     console.log "Update chart"
