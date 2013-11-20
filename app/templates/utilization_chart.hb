@@ -1,4 +1,3 @@
 <div class="graph">
-  <canvas id="utilizationGraph" width="900px" height="300px">
-  </canvas>
+  {{d3-stack-chart chart=chart chartData=chartData}}
 </div>

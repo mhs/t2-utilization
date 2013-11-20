@@ -1,16 +1,4 @@
 App.UtilizationChartController = Ember.ArrayController.extend
-  utilizationCounts: (->
-    data =
-      staff:
-        data: @mapBy('staff_count')
-      available:
-        data: @mapBy('assignable_count')
-      billable:
-        data: @mapBy('billable_count')
-      unavailable:
-        data: @mapBy('unassignable_count')
-  ).property('model.@each')
-
   chartStyles: (->
     pointStrokeColor = "#fff"
     styles =
@@ -37,23 +25,21 @@ App.UtilizationChartController = Ember.ArrayController.extend
   ).property()
 
   chartExists: false
+  chartData: (->
+    dates = [0..10]
+    makeLayer = (name, xValues, yValues) ->
+      name: name
+      values: xValues.map (xVal, i) ->
+        {x: xVal, y: yValues[i]}
+
+    [ makeLayer("billing", dates, @mapBy('billing_count')),
+      makeLayer("non-billing", dates, @mapBy('non_billing_count')),
+      makeLayer("unavailable", dates, @mapBy('unassignable_count'))
+      makeLayer("overhead", dates, @mapBy('overhead_count')),
+    ]
+  ).property('model.@each')
 
   actions:
     chartInserted: ->
-      @set('chartExists', true)
 
-  chartData: (->
-    counts = @get('utilizationCounts')
-    styles = @get('chartStyles')
-    mergedData = $.extend(true, counts, styles)
-    dataSets = []
-    dataSets.push(mergedData[key]) for key in Ember.keys(mergedData)
-    data =
-      labels : ["","","","","","","","","","",""]
-      datasets: dataSets
-  ).property('utilizationCounts')
-
-  redrawChart: (->
-    if @get('chartExists')
-      App.drawChart(@get('chartData'), App.chartOptions)
-  ).observes('chartData', 'chartExists')
+  chart: App.d3StackChart()

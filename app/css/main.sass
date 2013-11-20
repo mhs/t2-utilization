@@ -148,32 +148,17 @@ h1
 
 /* GRAPH STYLE */
 
-.graph
-  position: relative
-  min-height: 300px
-
-
-#utilizationGraph
-  background-color: #FFF
-  position: absolute
-  // margin-left: -1px
-  z-index: 1
-
-
-.graphVerticals
-  position: absolute
-  z-index: 2
-  height: 100%
+.stack-chart
   width: 100%
 
-  .verticalRule
-    border-right: 2px dashed #fff
-    height: 100%
-    width: 16.6667%
-    float:left
+.verticalRule
+  border-right: 2px dashed #fff
+  height: 100%
+  width: 16.6667%
+  float:left
 
-    &:nth-child(3)
-      border-right: 3px solid #fff
+  &:nth-child(3)
+    border-right: 3px solid #fff
 
 
 
@@ -305,20 +290,17 @@ i
     font-size: 14px
     display: block
     position: relative
-    bottom: 9px
 
 
   .number-container
-    +size(28px)
+    +size(36px)
     position: relative
-    top: 6px
     float: left
-    min-height: 28px
-    min-width: 28px
+    min-height: 36px
+    min-width: 36px
     border-radius: 50%
     margin: 0 10px 0 0
     text-align: center
-    padding: 5px
     background-color: #c0c0c0
 
 ul
@@ -380,7 +362,7 @@ li
     background-color: #FF9481
     padding: 1px 6px 3px 6px
     margin-right: 7px
-    min-width: 38px
+    min-width: 45px
 
 
 
@@ -411,6 +393,7 @@ li
   margin: 0 0 15px 0
   float: left
   width: 100%
+  cursor: pointer
 
   .active
     color: gray
@@ -425,7 +408,7 @@ li
       text-align: center
       padding: 0
       border-bottom: none
-      border-right: 1px solid white
+      border-left: 1px solid white
 
 
     li:nth-child(1)
@@ -433,9 +416,18 @@ li
       border-top: none
       padding-left: 28px
       line-height: 32px
+      border-left: none
 
-    li:last-child
-      border-right: none
+#calendarBar
+  float: right
+  position: relative
+  top: 21px
+
+.datepicker
+  padding: 5px
+  font-size: 16px
+  text-align: center
+
 
 
 

@@ -23,6 +23,9 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend('files', {
       "vendor/js/**/*.js"
     ]
   },
+  coffee: {
+    app: ["app/js/app.coffee", "app/js/d3_stack_chart.coffee", "app/js/**/*.coffee"]
+  },
   css: {
     vendor: [
       "vendor/css/**/*.css"
