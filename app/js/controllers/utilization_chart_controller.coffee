@@ -26,9 +26,11 @@ App.UtilizationChartController = Ember.ArrayController.extend
 
   chartExists: false
   chartData: (->
-    dates = [0..10]
+    dates = @mapBy('date').map((date) -> Date.parse(date))
     makeLayer = (name, xValues, yValues) ->
       name: name
+      startDate: xValues.get('firstObject')
+      endDate: xValues.get('lastObject')
       values: xValues.map (xVal, i) ->
         {x: xVal, y: yValues[i]}
 
