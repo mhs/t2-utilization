@@ -12,7 +12,7 @@ App.OfficeController = Ember.ObjectController.extend
       officeButton(name, slugs[index])
     )
 
-  ).property('officeNames', 'name')
+  ).property('officeNames', 'name', 'formattedSnapDate')
 
   snapDate: (->
     @get('controllers.snapshot.snapDate')
