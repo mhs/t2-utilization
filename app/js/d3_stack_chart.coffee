@@ -56,7 +56,6 @@ App.d3StackChart = ->
 
       tooltipMouseover = (date) ->
           myLayers
-          debugger
           tooltipGroup.attr("transform", () -> "translate(#{xScale(date)}, 0)")
 
       ruleEnter.append("rect").attr("class", "listener")

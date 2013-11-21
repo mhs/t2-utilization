@@ -3,7 +3,7 @@ App.OfficeController = Ember.ObjectController.extend
 
   officeButtons: (->
     officeButton = (name, slug) =>
-      linkPath = "#/offices/#{slug}/#{@get('snapDate')}"
+      linkPath = "#/offices/#{slug}/#{@get('formattedSnapDate')}"
       selected = (name == @get('name'))
       {name: name, selectedOffice: selected, linkPath: linkPath}
 
@@ -17,6 +17,13 @@ App.OfficeController = Ember.ObjectController.extend
   snapDate: (->
     @get('controllers.snapshot.snapDate')
   ).property('controllers.snapshot.snapDate')
+
+  formattedSnapDate:((key, string) ->
+    if arguments.length >1
+      [y, m, d] = string.split('-')
+      @set('snapDate', new Date(y, m - 1, d))
+    moment(@get('snapDate')).format("YYYY-MM-DD")
+  ).property('snapDate')
 
   officeSlugs: (->
     offices = @get('controllers.offices')
@@ -40,7 +47,7 @@ App.OfficeController = Ember.ObjectController.extend
     confirmDate: (dateValue) ->
       formattedDate = moment(dateValue).format("YYYY-MM-DD")
       @set "isEditingDate", false
-      @set "snapDate", formattedDate
+      @set "formattedSnapDate", formattedDate
 
       @store.find('utilizationSummary', {office_id: @get("officeQueryId"), snap_date: formattedDate}).then (newModel) =>
         @transitionToRoute 'office', newModel

@@ -1,5 +1,5 @@
 App.UtilizationCount = DS.Model.extend
-  date: DS.attr('string')
+  date: DS.attr('date')
   staff_count: DS.attr('number')
   overhead_count: DS.attr('number')
   billable_count: DS.attr('number')

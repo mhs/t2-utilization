@@ -12,7 +12,7 @@
   <section id="calendarBar">
     <div class="calendar-date-selector">
       <i class="viewDayBefore">&#58541;</i>
-      {{edit-date class="datepicker" action="confirmDate" value=snapDate escape-press="confirmDate"}}
+      {{edit-date class="datepicker" action="confirmDate" value=formattedSnapDate escape-press="confirmDate"}}
       <i class="viewDayAfter">&#58542;</i>
     </div>
   </section>
