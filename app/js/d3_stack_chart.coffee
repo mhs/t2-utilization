@@ -1,6 +1,5 @@
 App.d3StackChart = ->
   margin = {top: 0, right: 50, bottom: 0, left: 20}
-  padding = {top: 0, right: 0, bottom: 0, left: 0}
 
   height = 400
   chart = (selection) ->
@@ -28,6 +27,7 @@ App.d3StackChart = ->
         .attr("height", height + margin.top + margin.bottom)
       svg.select("g.chart")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+      svg = svg.select("g.chart")
       myLayers = stack(data)
 
       area = d3.svg.area()
@@ -36,7 +36,7 @@ App.d3StackChart = ->
         .y1((d)->  yScale(d.y0 + d.y))
       areaGenerator = (d) ->
         area(d.values)
-      paths = svg.select("g.chart").selectAll("path").data(myLayers)
+      paths = svg.selectAll("path").data(myLayers)
       newPaths = paths.enter().append('path')
         .attr("class", (d) -> d.name)
       paths.transition().attr("d", areaGenerator)
@@ -44,7 +44,7 @@ App.d3StackChart = ->
 
       dT = (day, amt) ->
         d3.time.day.offset(day, amt)
-      tickScale = xScale.copy().domain([dT(startDate, 1), endDate])
+      tickScale = xScale.copy().domain([dT(startDate, 1), dT(endDate, -1)])
       today = new Date()
       dayWidth = xScale(today) - xScale(dT(today, -1))
       #
@@ -55,8 +55,13 @@ App.d3StackChart = ->
       ruleEnter.append("svg:line").attr("y2", height)
 
       tooltipMouseover = (date) ->
-          myLayers
+        unless moment(date).day() == 6 || moment(date).day() == 0
+          billingValues = myLayers.findBy('name', 'billing').values
+          fmt = (date) -> moment(date).format("MM/DD")
+          selectedDay = billingValues.find (item) ->
+            fmt(item.x) == fmt(date)
           tooltipGroup.attr("transform", () -> "translate(#{xScale(date)}, 0)")
+          tooltipCircle.attr('transform', "translate(0, #{yScale(selectedDay.y)})")
 
       ruleEnter.append("rect").attr("class", "listener")
         .attr("width", dayWidth)
@@ -69,25 +74,26 @@ App.d3StackChart = ->
       xRule.exit().remove()
       #
       # create tooltip
-      tooltipGroup = svg.append('g').attr("class", "tooltip-group")
-      tooltipGroup.append("svg:line").attr("y2", height).attr('class', 'tooltip-line')
-      tooltipCircle = tooltipGroup
-        .append('g').attr('class', 'tooltip-circle')
-        .append('svg:circle').attr('r', 20)
-      tooltipLabel = tooltipGroup.append("svg:g").attr("class", "tooltip-label")
-        .attr("transform", "translate(-30, 320)")
-      tooltipLabel.append("svg:rect")
-        .attr("width", 60)
-        .attr("height", 40)
-      tooltipLabel.append("svg:text")
-        .attr("fill", "white")
-        .attr("y", 20)
-        .text("11/1")
+      if svg.select(".tooltip-group").empty()
+        tooltipGroup = svg.append('g').attr("class", "tooltip-group")
+        tooltipGroup.append("svg:line").attr("y2", height).attr('class', 'tooltip-line')
+        tooltipCircle = tooltipGroup
+          .append('g').attr('class', 'tooltip-circle')
+          .append('svg:circle').attr('r', 20)
+        tooltipLabel = tooltipGroup.append("svg:g").attr("class", "tooltip-label")
+          .attr("transform", "translate(-30, 320)")
+        tooltipLabel.append("svg:rect")
+          .attr("width", 60)
+          .attr("height", 40)
+        tooltipLabel.append("svg:text")
+          .attr("fill", "white")
+          .attr("y", 20)
+          .text("11/1")
 
 
       #add create week label groups
       weekLabels = svg.selectAll("g.week-label")
-        .data(tickScale.ticks(d3.time.week, 1))
+        .data(tickScale.ticks(d3.time.monday))
       newLabels = weekLabels.enter().append("svg:g")
         .attr("class", "week-label")
       newLabels.append("svg:rect")
