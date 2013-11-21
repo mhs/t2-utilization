@@ -45,15 +45,46 @@ App.d3StackChart = ->
       dT = (day, amt) ->
         d3.time.day.offset(day, amt)
       tickScale = xScale.copy().domain([dT(startDate, 1), endDate])
+      today = new Date()
+      dayWidth = xScale(today) - xScale(dT(today, -1))
       #
       #create the vertical rules
       xRule = svg.selectAll("g.vertical-rule")
         .data(tickScale.ticks(d3.time.day, 1))
-      xRule.enter().append("svg:g").attr("class", "vertical-rule")
-        .append("svg:line")
-        .attr("y2", height)
+      ruleEnter = xRule.enter().append("svg:g").attr("class", "vertical-rule")
+      ruleEnter.append("svg:line").attr("y2", height)
+
+      tooltipMouseover = (date) ->
+          myLayers
+          debugger
+          tooltipGroup.attr("transform", () -> "translate(#{xScale(date)}, 0)")
+
+      ruleEnter.append("rect").attr("class", "listener")
+        .attr("width", dayWidth)
+        .attr("x", -dayWidth/2)
+        .attr("height", height)
+        .style("opacity", 0)
+        .on("mouseover", tooltipMouseover)
+
       xRule.transition().attr("transform", (d) -> "translate(#{xScale(d)}, 0)")
       xRule.exit().remove()
+      #
+      # create tooltip
+      tooltipGroup = svg.append('g').attr("class", "tooltip-group")
+      tooltipGroup.append("svg:line").attr("y2", height).attr('class', 'tooltip-line')
+      tooltipCircle = tooltipGroup
+        .append('g').attr('class', 'tooltip-circle')
+        .append('svg:circle').attr('r', 20)
+      tooltipLabel = tooltipGroup.append("svg:g").attr("class", "tooltip-label")
+        .attr("transform", "translate(-30, 320)")
+      tooltipLabel.append("svg:rect")
+        .attr("width", 60)
+        .attr("height", 40)
+      tooltipLabel.append("svg:text")
+        .attr("fill", "white")
+        .attr("y", 20)
+        .text("11/1")
+
 
       #add create week label groups
       weekLabels = svg.selectAll("g.week-label")
@@ -68,6 +99,6 @@ App.d3StackChart = ->
         .attr("y", 20)
       weekLabels.select("text")
         .text( (d) -> d3.time.format("%m/%d")(d))
-      weekLabels.transition().attr("transform", (d) -> "translate(#{xScale(d) - 20}, 20)")
+      weekLabels.transition().attr("transform", (d) -> "translate(#{xScale(d) - 30}, 20)")
       weekLabels.exit().remove()
 
