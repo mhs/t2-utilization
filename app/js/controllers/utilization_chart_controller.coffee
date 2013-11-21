@@ -35,7 +35,7 @@ App.UtilizationChartController = Ember.ArrayController.extend
         {x: xVal, y: yValues[i]}
 
     [ makeLayer("billing", dates, @mapBy('billing_count')),
-      makeLayer("non-billing", dates, @mapBy('non_billing_count')),
+      makeLayer("available", dates, @mapBy('non_billing_count')),
       makeLayer("unavailable", dates, @mapBy('unassignable_count'))
       makeLayer("overhead", dates, @mapBy('overhead_count')),
     ]

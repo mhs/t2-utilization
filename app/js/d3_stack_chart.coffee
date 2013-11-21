@@ -29,15 +29,18 @@ App.d3StackChart = ->
       svg.select("g.chart")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
       myLayers = stack(data)
-      myData = myLayers.mapProperty 'values'
 
       area = d3.svg.area()
-      area = area.x((d)-> xScale(d.x))
+        .x((d)-> xScale(d.x))
         .y0((d)->  yScale(d.y0))
         .y1((d)->  yScale(d.y0 + d.y))
-      paths = svg.select("g.chart").selectAll("path").data(myData)
+      areaGenerator = (d) ->
+        area(d.values)
+      paths = svg.select("g.chart").selectAll("path").data(myLayers)
       newPaths = paths.enter().append('path')
-      paths.transition().attr("d", area).style("fill", (d, i) -> colors(i))
+        .attr("class", (d) -> d.name)
+      paths.transition().attr("d", areaGenerator)
+        # .style("fill", (d, i) -> colors(i))
 
       dT = (day, amt) ->
         d3.time.day.offset(day, amt)
