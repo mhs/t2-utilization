@@ -33,8 +33,6 @@ App.OfficesIndexRoute = Ember.Route.extend
 
 
 App.OfficeRoute = Ember.Route.extend
-
-
   model: (params) ->
     slugName = params.office_name
     App.getOfficeSummary.call(@, slugName, params)
@@ -68,3 +66,7 @@ App.OfficeRoute = Ember.Route.extend
   serialize: (model) ->
     office_name: model.get('firstObject.officeSlug')
     snap_date: model.get('firstObject.snapshot.formattedSnapDate')
+
+  actions:
+    switchDate: (d) ->
+      @get('controller').switchDate(d)

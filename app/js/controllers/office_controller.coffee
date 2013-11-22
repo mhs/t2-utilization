@@ -41,14 +41,16 @@ App.OfficeController = Ember.ObjectController.extend
     if @get('slug') == 'overview' then null else @get('id')
   ).property("slug")
 
+  switchDate: (date) ->
+    @set "isEditingDate", false
+    # @set "formattedSnapDate", date
+    @store.find('utilizationSummary', {office_id: @get("officeQueryId"), snap_date: date}).then (newModel) =>
+      @transitionToRoute 'office', newModel
+
   actions:
     editDate: ->
       @set "isEditingDate", true
     confirmDate: (dateValue) ->
       formattedDate = moment(dateValue).format("YYYY-MM-DD")
-      @set "isEditingDate", false
-      @set "formattedSnapDate", formattedDate
-
-      @store.find('utilizationSummary', {office_id: @get("officeQueryId"), snap_date: formattedDate}).then (newModel) =>
-        @transitionToRoute 'office', newModel
+      @switchDate(formattedDate)
 
