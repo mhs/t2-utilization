@@ -11,9 +11,9 @@
   </div>
   <section id="calendarBar">
     <div class="calendar-date-selector">
-      <i class="viewDayBefore">&#58541;</i>
+      <i {{action 'decrementDate'}} class="viewDayBefore">&#58541;</i>
       {{edit-date class="datepicker" action="confirmDate" value=formattedSnapDate escape-press="confirmDate"}}
-      <i class="viewDayAfter">&#58542;</i>
+      <i {{action 'incrementDate'}} class="viewDayAfter">&#58542;</i>
     </div>
   </section>
   <div class="staff-lists">

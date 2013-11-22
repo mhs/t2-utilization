@@ -53,4 +53,8 @@ App.OfficeController = Ember.ObjectController.extend
     confirmDate: (dateValue) ->
       formattedDate = moment(dateValue).format("YYYY-MM-DD")
       @switchDate(formattedDate)
+    incrementDate: ->
+      @switchDate(moment(@get('snapDate')).add('w', 2).format("YYYY-MM-DD"))
+    decrementDate: ->
+      @switchDate(moment(@get('snapDate')).subtract('w', 2).format("YYYY-MM-DD"))
 
