@@ -6,7 +6,11 @@ App.d3StackChart = ->
   chart = (selection, emberParent) ->
     width = $(window).width() - margin.right - margin.left
     selection.each (data) ->
+      snapDate = data.snapDate
+      data = data.layers
       vals = data.mapProperty 'values'
+
+      fmt = (date) -> moment(date).format("MM/DD")
       headCounts = vals[0].map (val, i) ->
         val.y + vals[1][i].y + vals[2][i].y + vals[3][i].y
 
@@ -53,12 +57,11 @@ App.d3StackChart = ->
       ruleEnter = xRule.enter().append("svg:g").attr("class", "vertical-rule")
       ruleEnter.append("svg:line").attr("y2", height)
 
-      tooltipMouseover = ([pos, date]) ->
+      setTooltipPosition = ([pos, date]) ->
         calculateUtilization = ([billing, nonBilling, unavailable], p) ->
           assignable =  (billing[p] + nonBilling[p] + unavailable[p])
           Math.round(100.0 * billing[p] / assignable)
 
-        fmt = (date) -> moment(date).format("MM/DD")
 
         billingValues = myLayers.findBy('name', 'billing').values
         selectedDay = billingValues.find (item) ->
@@ -78,7 +81,7 @@ App.d3StackChart = ->
         .attr("height", height)
         .style("opacity", 0)
       xRule.select("rect.listener")
-        .on("mouseover", tooltipMouseover)
+        .on("mouseover", setTooltipPosition)
         .on("click", ([p, d]) ->
           emberParent.sendAction('datePicked', moment(d).format("YYYY-MM-DD"))
         )
@@ -127,4 +130,10 @@ App.d3StackChart = ->
         .text((d) -> moment(d[1]).format("MM/DD"))
       weekLabels.transition().attr("transform", (d) -> "translate(#{xScale(d[0]) - 30}, 20)")
       weekLabels.exit().remove()
+
+      i = days.map((d) ->fmt(d)).indexOf(fmt(snapDate))
+      setTooltipPosition([i, snapDate])
+
+
+
 
