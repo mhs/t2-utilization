@@ -43,7 +43,7 @@ App.OfficeController = Ember.ObjectController.extend
 
   switchDate: (date) ->
     @set "isEditingDate", false
-    # @set "formattedSnapDate", date
+    @set "formattedSnapDate", date
     @store.find('utilizationSummary', {office_id: @get("officeQueryId"), snap_date: date}).then (newModel) =>
       @transitionToRoute 'office', newModel
 

@@ -1,9 +1,12 @@
 App.EditDateView = Ember.TextField.extend
+  attributeBindings: ['readonly']
+  readonly: true
   didInsertElement: ->
 
   focusIn: (event) ->
     self = @
     @$().datepicker
+      dateFormat: 'yy-mm-dd'
       onClose: (date)->
         self.triggerAction(actionContext: date)
 
