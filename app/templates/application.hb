@@ -1,8 +1,14 @@
 <div id="content">
   <header>
-      <div class="container">
-        <h1>Neo Utilization</h1>
-      </div>
+      <section class="nav-bar">
+        {{view App.SelectOffice contentBinding="offices"
+                                optionLabelPath="content.name"
+                                optionValuePath="content"
+                                selectionBinding="model"
+                                data-test="offices"
+                                class="white-button office-select"}}
+        {{view App.NavView}}
+      </section>
   </header>
   {{outlet}}
 </div>

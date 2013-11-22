@@ -9,21 +9,5 @@
   <body>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    <div class="navigation-frame">
-      <nav class="primary">
-        <div class="top-content">
-        </div>
-        <a href="http://neo.com" class="logo" title="The Lean Innovation Company">
-          neo
-        </a>
-
-        <div class="bottom-content">
-          <a href="#/sign_out" class="exit" title="Logout">
-            <span class="icon">q</span>
-            <strong>sign out</strong>
-          </a>
-        </div>
-      </nav>
-    </div>
   </body>
 </html>

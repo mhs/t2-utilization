@@ -1,9 +1,9 @@
 @import colors
 @import helpers
-@import nav
 @import url(http://weloveiconfonts.com/api/?family=entypo)
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700)
 @import bourbon/bourbon
+@import new-nav
 
 *
   box-sizing: border-box
@@ -16,15 +16,8 @@
   font-family: "Montserrat", sans-serif
   font-weight: 400
 
-@mixin clearfix
-  &:after
-    content: "."
-    display: block
-    height: 0
-    clear: both
-    visibility: hidden
-
 html,body
+  font-family: "Montserrat", sans-serif
   margin: 0
   padding: 0
   min-height: 100%
@@ -33,11 +26,7 @@ button
   margin: 0
 
 header, .office-nav
-  @include clearfix
-
-header
-  padding-top: 15px
-
+  +clearfix
 
 canvas
   display: block
@@ -53,7 +42,6 @@ canvas
 #content
   +clearfix
   width: 100%
-  padding-left: 40px
 
 .container
   margin: auto
@@ -223,7 +211,7 @@ h2
   clear: none
 
 
-i
+i.date-jump
   position: relative
   top: 2px
   font-family: 'entypo'
