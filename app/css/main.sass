@@ -1,9 +1,10 @@
+@import bourbon/bourbon
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700)
 @import colors
 @import helpers
-@import url(http://weloveiconfonts.com/api/?family=entypo)
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700)
-@import bourbon/bourbon
 @import new-nav
+
++font-face(entypo, '/webfonts/entypo')
 
 *
   box-sizing: border-box
@@ -45,7 +46,7 @@ canvas
 
 .container
   margin: auto
-  max-width: 960px
+  max-width: 1024px
   width: 96%
   @include clearfix
 
@@ -79,7 +80,7 @@ canvas
     box-shadow: -4px 4px 0 0 #20B56B
 
     &:focus
-    outline: none
+      outline: none
 
 h1
   @include regular-font
@@ -132,7 +133,33 @@ h1
     border-radius: 0
     background-color: #fdfdfd
 
+.legend
+  +clearfix
+  margin: 0 0 30px
 
+  h3
+    margin: 0 15px 0 0
+    float: left
+    position: relative
+    top: 4px
+
+  .indicator
+    +size(30px)
+    margin: 0 8px
+    border-radius: 50%
+    float: left
+
+  .overhead
+    background: $dark-gray
+
+  .unavailable
+    background: $mid-gray
+
+  .non-billing
+    background: $dark-blue
+
+  .billing
+    background: $blue
 
 /* GRAPH STYLE */
 
@@ -211,14 +238,14 @@ h2
   clear: none
 
 
-i.date-jump
+.arrow-left, .arrow-right
   position: relative
-  top: 2px
-  font-family: 'entypo'
+  font-family: "entypo"
+  top: 4px
   color: #D8D8D8
-  font-size: 24px
-  line-height: 32px
+  font-size: 40px
   font-style: normal
+  cursor: pointer
 
   &:hover
     color: #C8C8C8
@@ -260,7 +287,7 @@ i.date-jump
 
 .staffList
   @include black-font
-  float:left
+  float: left
   width: 100%
   font-size: 24px
   color: #2C2E2E
@@ -301,23 +328,33 @@ li
   padding-left: 28px
   border-bottom: 1px solid #C6C6C6
 
+.week-label
+  fill: $dark-blue
 
+.shadow-label
+  fill: $light-blue
 
-
+.date-label
+  fill: $red
 
 svg
   .billing
-    fill: $light-blue
+    fill: $blue
   .available
     fill: $dark-blue
   .unavailable
     fill: $mid-gray
   .overhead
-    fill: gray
+    fill: $dark-gray
 
 svg text
+  font-size: 20px
+  +black-font
   text-anchor: middle
   font-family: "Montserrat", sans-serif
+
+svg circle
+  fill: $green
 
 svg circle, .billing-line
   stroke-width: 4px
@@ -326,6 +363,14 @@ svg circle, .billing-line
 .billing-line
   fill: none
 
+.office-header
+  +clearfix
+  margin: 26px 0 30px 0
+
+  h1
+    font-size: 40px
+    float: left
+    margin: 0
 
 #utilizationOverview
   background-color: #DF5137
@@ -336,6 +381,7 @@ svg circle, .billing-line
   font-size: 13px
 
   .office-location
+    font-size: 20px
     position: relative
     top: 3px
     float: left
@@ -351,8 +397,9 @@ svg circle, .billing-line
 
 
   .office-percentage
-    float: left
     @include regular-font
+    font-size: 22px
+    float: left
     text-align: center
     background-color: #FF9481
     padding: 1px 6px 3px 6px
@@ -414,9 +461,9 @@ svg circle, .billing-line
       border-left: none
 
 #calendarBar
-  float: right
   position: relative
-  top: 21px
+  top: 6px
+  float: right
 
 .datepicker
   padding: 5px

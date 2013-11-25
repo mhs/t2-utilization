@@ -1,5 +1,5 @@
 App.d3StackChart = ->
-  margin = {top: 0, right: 50, bottom: 0, left: 20}
+  margin = {top: 0, right: 8, bottom: 0, left: 8}
 
   height = 400
 
@@ -93,18 +93,18 @@ App.d3StackChart = ->
             labelPosition = 250
           else
             labelPosition = 320
-          "translate(-30, #{labelPosition})"
+          "translate(-40, #{labelPosition})"
         )
         d3.select('.tooltip-circle').attr('transform', ->
           yPosition = yScale(selectedDay.y)
           clearance = height - yPosition
           if clearance < 40
-            labelPosition = 320
+            labelPosition = 350
           else
             labelPosition = yPosition
           "translate(0, #{labelPosition})"
           )
-        d3.select('.tooltip-circle .text').text(calculateUtilization(counts, dayIndex))
+        d3.select('.tooltip-circle .text').text(calculateUtilization(counts, dayIndex) + "%")
 
       ruleEnter.append("rect").attr("class", "listener")
         .attr("height", height)
@@ -127,27 +127,28 @@ App.d3StackChart = ->
         tooltipGroup = svg.append('g').attr("class", "tooltip-group")
         tooltipGroup.append("svg:line").attr("y2", height).attr('class', 'tooltip-line')
         tooltipCircle = tooltipGroup.append('g').attr('class', 'tooltip-circle')
-        tooltipCircle.append('svg:circle').attr('r', 20)
+        tooltipCircle.append('svg:circle').attr('r', 30)
         tooltipCircle.append('svg:text').attr("class", "text")
           .attr("fill", "white")
-          .attr("y", 5)
+          .attr("y", 7)
 
         tooltipLabel = tooltipGroup.append("svg:g").attr("class", "tooltip-label")
-          .attr("transform", "translate(-30, 320)")
+          .attr("transform", "translate(-40, 320)")
         tooltipLabel.append("svg:rect")
-          .attr("width", 60)
+          .attr("width", 80)
           .attr("height", 40)
           .attr("fill", "white")
           .attr("y", 4)
           .attr("x", -4)
         tooltipLabel.append("svg:rect")
-          .attr("width", 60)
+          .attr("class", "date-label")
+          .attr("width", 80)
           .attr("height", 40)
         tooltipLabel.append("svg:text")
           .attr("fill", "white")
           .attr("class", "text")
-          .attr("y", 25)
-          .attr("x", 30)
+          .attr("y", 26)
+          .attr("x", 38)
 
 
       #add create week label groups
@@ -160,23 +161,23 @@ App.d3StackChart = ->
       newLabels = weekLabels.enter().append("svg:g")
         .attr("class", "week-label")
       newLabels.append("svg:rect")
-        .attr("width", 60)
+        .attr("width", 80)
         .attr("height", 40)
         .attr("class", "shadow-label")
         .attr("fill", "white")
         .attr("y", 4)
         .attr("x", -4)
       newLabels.append("svg:rect")
-        .attr("width", 60)
+        .attr("width", 80)
         .attr("height", 40)
       newLabels.append("svg:text")
         .attr("fill", "white")
-        .attr("y", 25)
-        .attr("x", 30)
+        .attr("y", 26)
+        .attr("x", 38)
 
       weekLabels.select("text")
         .text((d) -> moment(d[1]).format("MM/DD"))
-      weekLabels.transition().attr("transform", (d) -> "translate(#{xScale(d[0]) - 30}, 20)")
+      weekLabels.transition().attr("transform", (d) -> "translate(#{xScale(d[0]) - 40}, 20)")
       weekLabels.exit().remove()
 
       i = days.map((d) ->fmt(d)).indexOf(fmt(snapDate))

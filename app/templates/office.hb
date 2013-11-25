@@ -10,18 +10,29 @@
         {{view App.NavView}}
       </section>
   </header>
+
+  <div class="legend">
+    <div class="overhead indicator"></div>
+    <h3>Overhead</h3>
+    <div class="unavailable indicator"></div>
+    <h3>Unavailable</h3>
+    <div class="non-billing indicator"></div>
+    <h3>Non-Billing</h3>
+    <div class="billing indicator"></div>
+    <h3>Billing</h3>
+  </div>
   {{outlet utilizationChart}}
   <div class="container">
     <div class="office-header">
       <h1>{{name}}</h1>
+      <section id="calendarBar">
+        <div class="calendar-date-selector">
+          <i {{action 'decrementDate'}}><span class="arrow-left">&#59237;</span></i>
+          {{edit-date class="datepicker" action="confirmDate" value=formattedSnapDate escape-press="confirmDate"}}
+          <i {{action 'incrementDate'}}><span class="arrow-right">&#59238;</span></i>
+        </div>
+      </section>
     </div>
-    <section id="calendarBar">
-      <div class="calendar-date-selector">
-        <i {{action 'decrementDate'}} class="date-jump">&#58541;</i>
-        {{edit-date class="datepicker" action="confirmDate" value=formattedSnapDate escape-press="confirmDate"}}
-        <i {{action 'incrementDate'}} class="date-jump">&#58542;</i>
-      </div>
-    </section>
     <div class="staff-lists">
     {{outlet snapshot}}
       <div class="office-by-office">
