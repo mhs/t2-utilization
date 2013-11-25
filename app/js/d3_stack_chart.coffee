@@ -109,7 +109,9 @@ App.d3StackChart = ->
         tooltipLabel.append("svg:text")
           .attr("fill", "white")
           .attr("class", "text")
-          .attr("y", 20)
+          .attr("y", 25)
+          .attr("x", 30)
+
 
       #add create week label groups
       mondays = daysAndTicks.filter ([pos, date])->
@@ -125,7 +127,9 @@ App.d3StackChart = ->
         .attr("height", 40)
       newLabels.append("svg:text")
         .attr("fill", "white")
-        .attr("y", 20)
+        .attr("y", 25)
+        .attr("x", 30)
+
       weekLabels.select("text")
         .text((d) -> moment(d[1]).format("MM/DD"))
       weekLabels.transition().attr("transform", (d) -> "translate(#{xScale(d[0]) - 30}, 20)")
