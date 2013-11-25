@@ -18,12 +18,20 @@ App.OfficeController = Ember.ObjectController.extend
     @get('controllers.snapshot.snapDate')
   ).property('controllers.snapshot.snapDate')
 
+  selectedOffice: Ember.computed.alias('model')
+
+  offices: Ember.computed.alias('controllers.offices.content')
+
   formattedSnapDate:((key, string) ->
     if arguments.length >1
       [y, m, d] = string.split('-')
       @set('snapDate', new Date(y, m - 1, d))
     moment(@get('snapDate')).format("YYYY-MM-DD")
   ).property('snapDate')
+
+  switchOffice: (->
+    @switchDate(@get('formattedSnapDate'))
+  ).observes('selectedOffice.id')
 
   officeSlugs: (->
     offices = @get('controllers.offices')

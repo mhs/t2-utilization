@@ -8,6 +8,10 @@ App.OfficesRoute = Ember.Route.extend
 
     @store.find('office')
 
+  setupController: (controller, model)->
+    @controllerFor('offices').set('model', model)
+
+
 App.getOfficeSummary = (slugName, params) ->
     offices = @modelFor('offices')
     office = offices.findProperty('slug', slugName)
