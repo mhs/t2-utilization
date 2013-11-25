@@ -41,10 +41,22 @@ App.d3StackChart = ->
         .y1((d)->  yScale(d.y0 + d.y))
       areaGenerator = (d) ->
         area(d.values)
+
+      line = d3.svg.line()
+        .x((d, i) -> xScale(i))
+        .y((d) -> yScale(d.y))
+
+      lineGenerator = (d) ->
+        line(d.values)
+
       paths = svg.selectAll("path").data(myLayers)
       newPaths = paths.enter().append('path')
         .attr("class", (d) -> d.name)
       paths.transition().attr("d", areaGenerator)
+
+      billingLine = svg.selectAll("path.billing-line").data(myLayers.filterProperty('name', 'billing'))
+      newLine = billingLine.enter().append("path").attr("class", "billing-line")
+      billingLine.transition().attr("d", lineGenerator)
 
       tickScale = xScale.copy().domain([1, dayCount - 2])
       #
@@ -101,6 +113,8 @@ App.d3StackChart = ->
         tooltipCircle.append('svg:circle').attr('r', 20)
         tooltipCircle.append('svg:text').attr("class", "text")
           .attr("fill", "white")
+          .attr("y", 5)
+
         tooltipLabel = tooltipGroup.append("svg:g").attr("class", "tooltip-label")
           .attr("transform", "translate(-30, 320)")
         tooltipLabel.append("svg:rect")
