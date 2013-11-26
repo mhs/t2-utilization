@@ -70,8 +70,8 @@ App.d3StackChart = ->
       ruleEnter.append("svg:line").attr("y2", height)
 
       setTooltipPosition = ([pos, date]) ->
-        calculateUtilization = ([billing, available], p) ->
-          Math.round(100.0 * billing[p] / available[p])
+        calculateUtilization = ([billing, nonbilling], p) ->
+          Math.round(100.0 * billing[p] / (billing[p] + nonbilling[p]))
 
 
         billingValues = myLayers.findBy('name', 'billing').values
@@ -80,7 +80,7 @@ App.d3StackChart = ->
 
         dayIndex = billingValues.indexOf(selectedDay)
 
-        counts = ['billing', 'available'].map (name) ->
+        counts = ['billing', 'nonbilling'].map (name) ->
           myLayers.findBy('name', name).values.mapProperty('y')
 
         d3.select('.tooltip-group').attr("transform", "translate(#{xScale(pos)}, 0)")
