@@ -20,6 +20,8 @@
     <h3>Non-Billing</h3>
     <div class="billing indicator"></div>
     <h3>Billing</h3>
+    <div class="utilization indicator"></div>
+    <h3>Daily Utilization (Billing / Available)</h3>
   </div>
   {{outlet utilizationChart}}
   <div class="container">

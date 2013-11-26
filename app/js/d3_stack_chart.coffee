@@ -89,7 +89,7 @@ App.d3StackChart = ->
           yPosition = yScale(selectedDay.y)
           clearance = height - yPosition
           if clearance < 100
-            labelPosition = 250
+            labelPosition = 200
           else
             labelPosition = 320
           "translate(-40, #{labelPosition})"

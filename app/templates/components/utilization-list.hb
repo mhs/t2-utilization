@@ -7,6 +7,6 @@
 
 <ul>
   {{#each property}}
-  <li>{{name}}</li>
+    <li>{{name}}</li>
   {{/each}}
 </ul>

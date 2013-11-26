@@ -149,6 +149,9 @@ h1
     border-radius: 50%
     float: left
 
+  .utilization
+    background: $green
+
   .overhead
     background: $dark-gray
 
@@ -241,9 +244,9 @@ h2
 .arrow-left, .arrow-right
   position: relative
   font-family: "entypo"
-  top: 4px
-  color: #D8D8D8
-  font-size: 40px
+  top: 8px
+  color: gray
+  font-size: 58px
   font-style: normal
   cursor: pointer
 
@@ -253,28 +256,6 @@ h2
 
   &:active
     color: #b1b1b1
-
-
-
-.viewDayBefore
-  margin-right: 10px
-
-
-.viewDayAfter
-  margin-left: 10px
-
-
-.dateToggle
-  display: block
-  float: right
-  padding-top: 22px
-
-
-
-.dateToggle > div
-  display: block
-  float: left
-
 
 .dateInput
   @include regular-font
@@ -287,19 +268,18 @@ h2
 
 .staffList
   @include black-font
-  float: left
   width: 100%
-  font-size: 24px
+  font-size: 28px
   color: #2C2E2E
   line-height: 36px
-  padding: 5px 0 5px
+  padding: 10px 5px
   border-top: 4px solid #C6C6C6
   border-bottom: 4px solid #C6C6C6
 
   .numbers
-    @include regular-font
+    @include black-font
     color: #fff
-    font-size: 14px
+    font-size: 18px
     display: block
     position: relative
 
@@ -326,7 +306,7 @@ li
   line-height: 32px
   font-size: 14px
   padding-left: 28px
-  border-bottom: 1px solid #C6C6C6
+  border-bottom: 1px dashed gray
 
 .week-label
   fill: $dark-blue
@@ -421,6 +401,8 @@ svg circle, .billing-line
   float: right
 
 .office-title
+  color: gray
+  font-size: 20px
   padding: 5px
   float: none
   text-align: center
@@ -431,8 +413,12 @@ svg circle, .billing-line
   float: left
   width: 60%
 
+  li
+    font-size: 18px
+    padding: 5px
+
 .utilization-sidebar
-  margin: 0 0 15px 0
+  margin: 0 0 30px 0
   float: left
   width: 100%
   cursor: pointer
@@ -447,6 +433,7 @@ svg circle, .billing-line
       width: 14.2857%
       background: gray
       float: left
+      font-size: 16px
       text-align: center
       padding: 0
       border-bottom: none
@@ -466,8 +453,10 @@ svg circle, .billing-line
   float: right
 
 .datepicker
+  border: 2px solid gray
   padding: 5px
-  font-size: 16px
+  color: gray
+  font-size: 18px
   text-align: center
 
 
