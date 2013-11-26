@@ -9,7 +9,7 @@
 *
   box-sizing: border-box
 
-@mixin black-font
+@mixin bold-font
   font-family: "Montserrat", sans-serif
   font-weight: 700
 
@@ -17,19 +17,26 @@
   font-family: "Montserrat", sans-serif
   font-weight: 400
 
+@mixin border
+  border-radius: 2px
+
+
 html,body
   font-family: "Montserrat", sans-serif
   margin: 0
   padding: 0
   min-height: 100%
+  letter-spacing: .5px
 
 button
+  +border
   margin: 0
 
 header, .office-nav
   +clearfix
 
 canvas
+  +border
   display: block
 
 .navigation-frame
@@ -50,38 +57,6 @@ canvas
   width: 96%
   @include clearfix
 
-#utilizationToggle
-  display: block
-  float: right
-  margin-top: 22px
-
-
-.snapshot-forecast-button
-  cursor: pointer
-  float: left
-  @include black-font
-  background: #FFFFFF
-  font-size: 16px
-  color: #C6C6C6
-  border: none
-  line-height: 25px
-  text-transform: uppercase
-  text-decoration: none
-  padding: 5px 10px
-  margin-left: 20px
-
-  &:focus
-    outline: none
-
-  &.snapshot-forecast-button-selected
-    background: #2DCA7D
-    border: none
-    color: #FFFFFF
-    box-shadow: -4px 4px 0 0 #20B56B
-
-    &:focus
-      outline: none
-
 h1
   @include regular-font
   font-weight: 400
@@ -90,63 +65,19 @@ h1
   margin-bottom: 20px
   float: left
 
-
-
-.office-nav
-  width: 100%
-  background: #F0F0F0
-  border-top: 1px solid #DEDEDE
-  border-bottom: 1px solid #DEDEDE
-  margin-bottom: 30px
-
-
-.office-nav a.button
-  @include regular-font
-  float: left
-  width: 9%
-  padding: 10px 0
-  background-color: #F0F0F0
-  text-decoration: none
-  text-align: center
-  font-size: 13px
-  color: #AAAAAA
-  line-height: 18px
-  border: 0
-  cursor: pointer
-
-  &:focus
-    outline: none
-
-  &:hover
-    color: #393939
-    outline: none
-
-
-  &:first-child
-    padding-left: 0
-
-
-  &.selected-office
-    @include black-font
-    color: #393939
-    outline: none
-    border-radius: 0
-    background-color: #fdfdfd
-
 .legend
   +clearfix
   margin: 0 0 30px
 
   h3
-    margin: 0 15px 0 0
-    float: left
-    position: relative
-    top: 4px
+    color: white
+    margin: 0
 
   .indicator
-    +size(30px)
+    +border
+    pointer-events: none
+    padding: 7px
     margin: 0 8px
-    border-radius: 50%
     float: left
 
   .utilization
@@ -166,7 +97,17 @@ h1
 
 /* GRAPH STYLE */
 
+.listener
+  cursor: pointer
+  fill: white
+  opacity: 0
+  +transition(opacity, .4s)
+
+  &:hover
+    opacity: .1
+
 .stack-chart
+  +border
   width: 100%
 
 .vertical-rule
@@ -179,68 +120,6 @@ h1
   stroke: white
   stroke-width: 3px
 
-.averageUtilization
-  position: absolute
-  z-index: 5
-  top: 118px
-  left: 35px
-
-  .averagePercentage
-    @include black-font
-    font-size: 55px
-    color: #646969
-    padding: 25px 0px 15px 10px
-    border-radius: 90px
-    background-color: #fff
-    box-shadow: 0px 5px 0 0 #909090
-    width: 110px
-    height: 110px
-    margin-left: 30px
-
-    span
-      font-size: 30px
-      padding: 0
-      vertical-align: super
-
-
-
-  .averageLabel
-    @include black-font
-    text-transform: uppercase
-    padding: 5px 10px
-    background: #2DCA7D
-    color: #FFFFFF
-    box-shadow: -4px 4px 0 0 #20B56B
-    margin-top: -15px
-
-    span
-      position: relative
-      top: 0px
-      font-family: 'entypo'
-      color: #555
-      font-size: 15px
-      margin-left: 5px
-
-
-
-
-
-#utilizationData
-  width: 76%
-  float: left
-
-
-h2
-  @include regular-font
-  display: inline-block
-  float: left
-  font-weight: 400
-  font-size: 30px
-  color: #2C2E2E
-  margin-bottom: 0px
-  clear: none
-
-
 .arrow-left, .arrow-right
   position: relative
   font-family: "entypo"
@@ -249,25 +128,20 @@ h2
   font-size: 58px
   font-style: normal
   cursor: pointer
+  +transition(all, .4s)
 
   &:hover
-    color: #C8C8C8
+    color: $dark-gray
 
 
   &:active
     color: #b1b1b1
 
-.dateInput
-  @include regular-font
-  font-size: 16px
-  width: 146px
-  padding: 5px
-
 .staff-lists
   +clearfix
 
 .staffList
-  @include black-font
+  @include bold-font
   width: 100%
   font-size: 28px
   color: #2C2E2E
@@ -277,7 +151,7 @@ h2
   border-bottom: 4px solid #C6C6C6
 
   .numbers
-    @include black-font
+    @include bold-font
     color: #fff
     font-size: 18px
     display: block
@@ -309,12 +183,15 @@ li
   border-bottom: 1px dashed gray
 
 .week-label
+  +border
   fill: $dark-blue
 
 .shadow-label
+  +border
   fill: $light-blue
 
 .date-label
+  +border
   fill: $red
 
 svg
@@ -329,7 +206,7 @@ svg
 
 svg text
   font-size: 20px
-  +black-font
+  +bold-font
   text-anchor: middle
   font-family: "Montserrat", sans-serif
 
@@ -353,15 +230,16 @@ svg circle, .billing-line
     margin: 0
 
 #utilizationOverview
+  +border
+  @include regular-font
   background-color: #DF5137
   box-shadow: -4px 4px 0 0 #9E3927
-  padding: 17px
-  @include regular-font
+  padding: 15px
   color: #ffffff
   font-size: 13px
 
   .office-location
-    font-size: 20px
+    font-size: 18px
     position: relative
     top: 3px
     float: left
@@ -377,8 +255,9 @@ svg circle, .billing-line
 
 
   .office-percentage
-    @include regular-font
-    font-size: 22px
+    +border
+    @include bold-font
+    font-size: 20px
     float: left
     text-align: center
     background-color: #FF9481
@@ -386,15 +265,12 @@ svg circle, .billing-line
     margin-right: 7px
     min-width: 45px
 
-
-
-
 .office-by-office, .office-title
-  @include black-font
+  @include bold-font
   @include clearfix
+  +border
   text-transform: uppercase
   background-color: #fff
-  font-size: 14px
   display: block
   color: #000000
   margin-bottom: 15px
@@ -402,7 +278,7 @@ svg circle, .billing-line
 
 .office-title
   color: gray
-  font-size: 20px
+  font-size: 18px
   padding: 5px
   float: none
   text-align: center
@@ -417,7 +293,8 @@ svg circle, .billing-line
     font-size: 18px
     padding: 5px
 
-.utilization-sidebar
+.utilization-header
+  +border
   margin: 0 0 30px 0
   float: left
   width: 100%
@@ -427,17 +304,25 @@ svg circle, .billing-line
     color: gray
     background: white
 
+    &:hover
+      background: white
+
   ul
     li
+      +bold-font
       color: white
       width: 14.2857%
       background: gray
       float: left
-      font-size: 16px
+      font-size: 18px
       text-align: center
       padding: 0
       border-bottom: none
       border-left: 1px solid white
+      +transition(all, .4s)
+
+      &:hover
+        background: $dark-gray
 
 
     li:nth-child(1)
@@ -453,12 +338,19 @@ svg circle, .billing-line
   float: right
 
 .datepicker
+  +border
+  font-family: "Montserrat", sans-serif
   border: 2px solid gray
   padding: 5px
   color: gray
-  font-size: 18px
+  width: 200px
+  font-size: 22px
   text-align: center
+  cursor: pointer
+  +transition(all, .4s)
 
-
+  &:hover
+    color: $dark-gray
+    border: 2px solid $dark-gray
 
 

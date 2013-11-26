@@ -1,4 +1,4 @@
-  <div class = "utilization-sidebar">
+  <div class = "utilization-header">
     <ul>
       {{#each staffTypes }}
       <li {{bind-attr class="active" data-filter-name=name}}>{{title}}</li>

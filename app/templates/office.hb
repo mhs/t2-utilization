@@ -12,16 +12,21 @@
   </header>
 
   <div class="legend">
-    <div class="overhead indicator"></div>
-    <h3>Overhead</h3>
-    <div class="unavailable indicator"></div>
-    <h3>Unavailable</h3>
-    <div class="non-billing indicator"></div>
-    <h3>Non-Billing</h3>
-    <div class="billing indicator"></div>
-    <h3>Billing</h3>
-    <div class="utilization indicator"></div>
-    <h3>Daily Utilization (Billing / Available)</h3>
+    <div class="overhead indicator">
+      <h3>Overhead</h3>
+    </div>
+    <div class="unavailable indicator">
+      <h3>Unavailable</h3>
+    </div>
+    <div class="non-billing indicator">
+      <h3>Non-Billing</h3>
+    </div>
+    <div class="billing indicator">
+      <h3>Billing</h3>
+    </div>
+    <div class="utilization indicator">
+      <h3>Daily Utilization (Billing / Available)</h3>
+    </div>
   </div>
   {{outlet utilizationChart}}
   <div class="container">

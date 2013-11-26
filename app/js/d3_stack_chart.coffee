@@ -107,7 +107,7 @@ App.d3StackChart = ->
 
       ruleEnter.append("rect").attr("class", "listener")
         .attr("height", height)
-        .style("opacity", 0)
+        # .style("opacity", 0)
       xRule.select("rect.listener")
         .on("mouseover", setTooltipPosition)
         .on("click", ([p, d]) ->
@@ -176,7 +176,7 @@ App.d3StackChart = ->
 
       weekLabels.select("text")
         .text((d) -> moment(d[1]).format("MM/DD"))
-      weekLabels.transition().attr("transform", (d) -> "translate(#{xScale(d[0]) - 40}, 20)")
+      weekLabels.transition().attr("transform", (d) -> "translate(#{xScale(d[0]) - 40}, 25)")
       weekLabels.exit().remove()
 
       i = days.map((d) ->fmt(d)).indexOf(fmt(snapDate))

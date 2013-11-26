@@ -4,3 +4,9 @@ App.SnapshotView = Ember.View.extend
     if name
       @get('controller').send('setFilter', name)
 
+  hover: (evt) ->
+    name = $(evt.target).data('filter-name')
+    if name
+      @get('controller').send('chartHighlight', name)
+
+
