@@ -4,6 +4,7 @@
 /node_modules
 
 /dist
+/.sass-cache
 /generated
 libpeerconnection.log
 .sass-cache/
