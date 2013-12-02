@@ -84,10 +84,10 @@ h1
     background: $green
 
   .overhead
-    background: $dark-gray
+    background: gray
 
   .unavailable
-    background: $mid-gray
+    background: $dark-gray
 
   .non-billing
     background: $dark-blue
@@ -96,6 +96,7 @@ h1
     background: $blue
 
 /* GRAPH STYLE */
+
 
 .listener
   cursor: pointer
@@ -123,9 +124,9 @@ h1
 .arrow-left, .arrow-right
   position: relative
   font-family: "entypo"
-  top: 8px
+  top: 10px
   color: gray
-  font-size: 58px
+  font-size: 70px
   font-style: normal
   cursor: pointer
   +transition(all, .4s)
@@ -195,14 +196,35 @@ li
   fill: $red
 
 svg
+
   .billing
+    +transition-property (opacity)
+    +transition-duration(.4s)
     fill: $blue
+
   .nonbilling
+    +transition-property (opacity)
+    +transition-duration(.4s)
     fill: $dark-blue
+
   .unavailable
-    fill: $mid-gray
-  .overhead
+    +transition-property (opacity)
+    +transition-duration(.4s)
     fill: $dark-gray
+
+  .overhead
+    +transition-property (opacity)
+    +transition-duration(.4s)
+    fill: gray
+
+  .highlight
+    fill: $green
+    opacity: .4
+
+  .dimmed
+    stroke-width: 2px
+    stroke: white
+    opacity: .2
 
 svg text
   font-size: 20px
@@ -232,10 +254,10 @@ svg circle, .billing-line
 #utilizationOverview
   +border
   @include regular-font
-  background-color: #DF5137
+  background-color: $red
   box-shadow: -4px 4px 0 0 #9E3927
   padding: 15px
-  color: #ffffff
+  color: white
   font-size: 13px
 
   .office-location
@@ -244,15 +266,12 @@ svg circle, .billing-line
     top: 3px
     float: left
 
-
   .officeInfo
     +clearfix
     margin-bottom: 6px
 
     &:last-child
       margin-bottom: 0
-
-
 
   .office-percentage
     +border
@@ -272,7 +291,7 @@ svg circle, .billing-line
   text-transform: uppercase
   background-color: #fff
   display: block
-  color: #000000
+  color: white
   margin-bottom: 15px
   float: right
 
