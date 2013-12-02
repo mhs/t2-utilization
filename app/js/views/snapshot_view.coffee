@@ -4,9 +4,10 @@ App.SnapshotView = Ember.View.extend
     if name
       @get('controller').send('setFilter', name)
 
-  hover: (evt) ->
+  mouseEnter: (evt) ->
     name = $(evt.target).data('filter-name')
     if name
       @get('controller').send('chartHighlight', name)
-
+  mouseLeave: (evt) ->
+    console.log "leaving #{evt.target}"
 

@@ -3,7 +3,9 @@ App.SnapshotController = Ember.ObjectController.extend
   actions:
     setFilter: (name) ->
       @set('filterName', name)
-      chartHighlight: (name) ->
+
+    chartHighlight: (name) ->
+      console.log name
 
 
 
