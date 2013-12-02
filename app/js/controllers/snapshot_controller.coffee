@@ -26,26 +26,6 @@ App.SnapshotController = Ember.ObjectController.extend
         classNames.replace("dimmed", "")
         )
 
-      # highlight =
-      #   staff: [""]
-      #   overhead: [".overhead"]
-      #   billable: [".billing", ".nonbilling", ".unavailable"]
-      #   billing: [".billing"]
-      #   non_billing: [".nonbilling"]
-      #   assignable: [".billing", ".nonbilling"]
-      #   unassignable: [".unavailable"]
-      # svg.find(highlight[name].join(', ')).attr("class", (index, classNames) ->
-      #   classNames + " " + "highlight"
-      #   )
-
-      # highlighted = all_paths.reject (e) ->
-      #   highlight[name].contains(e)
-      # svg.find(highlighted.join(', ')).attr("class", (index, classNames) ->
-      #   classNames.replace("highlight", "")
-        # )
-
-
-
   filteredList: (->
     filterName = @get("filterName")
     @get(filterName)
