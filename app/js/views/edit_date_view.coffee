@@ -7,6 +7,7 @@ App.EditDateView = Ember.TextField.extend
     self = @
     @$().datepicker
       dateFormat: 'yy-mm-dd'
+      beforeShowDay: $.datepicker.noWeekends
       onClose: (date)->
         self.triggerAction(actionContext: date)
 
