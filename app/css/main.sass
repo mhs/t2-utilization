@@ -368,4 +368,63 @@ svg circle, .billing-line
     color: $dark-gray
     border: 2px solid $dark-gray
 
+// datepicker
 
+.ui-datepicker .ui-datepicker-prev
+  top: 10%
+
+.ui-datepicker .ui-datepicker-next
+  top: 10%
+
+.ui-widget-header
+  +border
+  background: gray
+  color: white
+
+.ui-datepicker-prev, .ui-datepicker-next
+  +border
+  background: white
+
+  &:hover
+    +border
+    background: white
+
+.ui-corner-all
+  +border
+
+.ui-state-hover
+  +border
+  background: white
+
+.ui-datepicker table
+  border-collapse: separate
+  border-spacing: 4px
+
+.ui-datepicker td a
+  padding: 4px
+
+td
+  margin: 3px
+
+.ui-datepicker-other-month
+  background: white
+
+  &:hover
+    background: white
+
+td, .ui-widget-content .ui-state-default
+  +border
+  text-align: center
+  border: none
+  background: $dark-gray
+  color: white
+
+  &:hover
+    background: $mid-gray
+    border: none
+
+.ui-widget-content .ui-state-highlight
+  border: 1px solid $blue
+
+  &:hover
+    border: 1px solid $blue
