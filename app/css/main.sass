@@ -97,6 +97,8 @@ h1
 
 /* GRAPH STYLE */
 
+.chart
+  +border
 
 .listener
   cursor: pointer
@@ -217,10 +219,16 @@ svg
     +transition-duration(.4s)
     fill: gray
 
+  .highlight
+    stroke-width: 1px
+    stroke: $green
+    fill: $green
+    opacity: .4
+
   .dimmed
     stroke-width: 2px
     stroke: white
-    opacity: .2
+    opacity: .1
 
 svg text
   font-size: 20px
