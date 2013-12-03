@@ -47,6 +47,6 @@ App.SnapshotController = Ember.ObjectController.extend
     makeType("billable", "Billable"),
     makeType("billing", "Billing"),
     makeType("non_billing", "Non-Billing"),
-    makeType("assignable", "Available"),
+    makeType("assignable", "Assignable"),
     makeType("unassignable", "Unavailable")]
     ).property("filterName")
