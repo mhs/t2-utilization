@@ -7,7 +7,6 @@ App.D3StackChartComponent = Ember.Component.extend
       Ember.run.debounce @, @update, 100
 
   update: (->
-    console.log "Update chart"
     d3.select(@$()[0])
       .data([ @get('chartData') ])
       .call(@get('chart'), @)

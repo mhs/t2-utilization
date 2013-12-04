@@ -8,7 +8,6 @@ App.SnapshotView = Ember.View.extend
     $(@get("element")).on("mouseenter", "li", (evt) =>
       name = $(evt.target).data('filter-name')
       @get('controller').send('chartHighlight', name)
-      console.log name
       )
     $(@get("element")).on("mouseleave", "li", (evt) =>
       @get('controller').send('chartHighlight', null)
