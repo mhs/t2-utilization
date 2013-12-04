@@ -25,7 +25,7 @@
       <h3>Billing</h3>
     </div>
     <div class="utilization indicator">
-      <h3>Daily Utilization (Billing / Available)</h3>
+      <h3>Daily Utilization (Billing / Assignable)</h3>
     </div>
   </div>
   {{outlet utilizationChart}}
