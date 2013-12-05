@@ -103,7 +103,8 @@ App.d3StackChart = ->
             labelPosition = yPosition
           "translate(0, #{labelPosition})"
           )
-        d3.select('.tooltip-circle .text').text(calculateUtilization(counts, dayIndex) + "%")
+        percentage = calculateUtilization(counts, dayIndex) || 0
+        d3.select('.tooltip-circle .text').text(percentage + "%")
 
       ruleEnter.append("rect").attr("class", "listener")
         .attr("height", height)
