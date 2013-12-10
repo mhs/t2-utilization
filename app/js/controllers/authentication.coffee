@@ -1,3 +1,8 @@
+_redirectTo = (url) ->
+  uri = window.ENV.apiHost + url
+  uri += "?return_url=" + escape(location.href)
+  location.href = uri
+
 App.AuthenticationController = Ember.ObjectController.extend
   init: -> @set('accessToken', localStorage.accessToken)
 
@@ -6,13 +11,11 @@ App.AuthenticationController = Ember.ObjectController.extend
   isAuthenticated: Ember.computed.notEmpty('accessToken')
 
   redirectToSignIn: ->
-    uri = window.ENV.apiHost + "/sign_in?"
-    uri += "&return_url=" + escape(location.protocol + "//" + location.host)
-    location.href = uri
+    _redirectTo "/sign_in"
 
   logout: ->
     @set('accessToken', null)
-    location.href = window.ENV.apiHost + "/sign_out"
+    _redirectTo "/sign_out"
 
   extractAccessToken: ->
     match = location.href.match(/authentication_token=([a-zA-Z0-9]+)/)
@@ -43,4 +46,4 @@ App.AuthenticationController = Ember.ObjectController.extend
     )
     person
   ).property('accessToken')
-  
+
