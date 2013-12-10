@@ -5,7 +5,6 @@ App.OfficesRoute = Ember.Route.extend
       id: 1000
       name: 'Overview'
       slug: 'overview'
-
     @store.find('office')
 
   setupController: (controller, model)->
