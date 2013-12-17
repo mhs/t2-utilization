@@ -1,3 +1,3 @@
-<div>
-  Loading!
-</div>
+<pre id="loading">
+  loading... {{progress}}
+</pre>

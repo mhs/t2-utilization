@@ -12,3 +12,18 @@ App.ApplicationRoute = Ember.Route.extend
 App.IndexRoute = Ember.Route.extend
   redirect: ->
     @transitionTo('offices')
+
+  actions:
+    loading: ->
+      unless @get('loadingView')
+        view = Ember.View.create(
+          templateName: 'loading'
+          elementId: 'loading'
+          controller: @controllerFor('loading')
+        ).append()
+        @set('loadingView', view)
+
+      @router.one('didTransition', =>
+        @get('loadingView').destroy()
+      )
+
