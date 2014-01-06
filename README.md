@@ -58,4 +58,3 @@ And then visit the page at [localhost:8000](http://localhost:8000) to verify tha
 This app is deployed to http://t2-utilization.herokuapp.com using the lineman buildpack.
 It runs in productoni as http://t2utilization.neo.com
 
-
