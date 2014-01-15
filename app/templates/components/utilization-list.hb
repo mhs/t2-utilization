@@ -7,6 +7,11 @@
 
 <ul>
   {{#each property}}
-    <li>{{name}}</li>
+    <li>{{name}}
+        <div class="percent-bar">
+          <div class="percentage">100%</div>
+          <div class="indicator"></div>
+        </div>
+    </li>
   {{/each}}
 </ul>

@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "grunt-ember-handlebars": "0.7.0",
-    "lineman": "0.15.0"
+    "lineman": "0.15.1"
   },
   "engines": {
     "node": "~>0.10.10",
