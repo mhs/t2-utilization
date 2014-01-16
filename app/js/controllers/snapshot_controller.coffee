@@ -1,5 +1,5 @@
 App.SnapshotController = Ember.ObjectController.extend
-  filterName: "staff"
+  filterName: "staffWeights"
   actions:
     setFilter: (name) ->
       @set('filterName', name)
@@ -9,13 +9,13 @@ App.SnapshotController = Ember.ObjectController.extend
       svg = $("svg")
       all_paths = [".billing", ".nonbilling", ".unavailable", ".overhead"]
       dimmed =
-        staff: [""]
-        overhead: [".billing", ".nonbilling", ".unavailable"]
-        billable: [".overhead"]
-        billing: [".nonbilling", ".unavailable", ".overhead"]
-        non_billing: [".billing", ".unavailable", ".overhead"]
-        assignable: [".unavailable", ".overhead"]
-        unassignable: [".billing", ".nonbilling", ".overhead"]
+        staffWeights: [""]
+        overheadWeights: [".billing", ".nonbilling", ".unavailable"]
+        billableWeights: [".overhead"]
+        billingWeights: [".nonbilling", ".unavailable", ".overhead"]
+        nonBillingWeights: [".billing", ".unavailable", ".overhead"]
+        assignableWeights: [".unavailable", ".overhead"]
+        unassignableWeights: [".billing", ".nonbilling", ".overhead"]
       svg.find(dimmed[name].join(', ')).attr("class", (index, classNames) ->
         classNames + " " + "dimmed"
         )
@@ -60,11 +60,11 @@ App.SnapshotController = Ember.ObjectController.extend
       active = (name == @get('filterName'))
       {name: name, title: title, active: active}
 
-    [makeType("staff", "Staff"),
-    makeType("overhead", "Overhead"),
-    makeType("billable", "Billable"),
-    makeType("billing", "Billing"),
-    makeType("non_billing", "Non-Billing"),
-    makeType("assignable", "Assignable"),
-    makeType("unassignable", "Unavailable")]
+    [makeType("staffWeights", "Staff"),
+    makeType("overheadWeights", "Overhead"),
+    makeType("billableWeights", "Billable"),
+    makeType("billingWeights", "Billing"),
+    makeType("nonBillingWeights", "Non-Billing"),
+    makeType("assignableWeights", "Assignable"),
+    makeType("unassignableWeights", "Unavailable")]
     ).property("filterName")

@@ -22,3 +22,12 @@ App.DateTransform = DS.Transform.extend
     if !date
       return null
     moment(date).format('YYYY-MM-DD')
+
+App.WeightsTransform = DS.Transform.extend
+  deserialize: (weights) ->
+    result = []
+    # use 'percentage' instead of 'percent' because
+    # our broke-ass Handlebars thinks `this.percent` should
+    # invoke the `percent` helper, FFS. Fixed in 1.3
+    result.pushObject({ name: name, percentage: percent }) for name, percent of weights
+    result
