@@ -1,8 +1,6 @@
 App.Snapshot = DS.Model.extend
   snapDate: DS.attr('date')
   staffWeights: DS.attr('weights')
-  overheadWeights: DS.attr('weights')
-  billableWeights: DS.attr('weights')
   unassignableWeights: DS.attr('weights')
   assignableWeights: DS.attr('weights')
   billingWeights: DS.attr('weights')
@@ -17,4 +15,12 @@ App.Snapshot = DS.Model.extend
     moment(@get('snapDate')).format("YYYY-MM-DD")
   ).property('snapDate')
 
+  overheadWeights: (->
+    @get('staffWeights').filter (person) ->
+      person.percentage < 100
+  ).property('staffWeights')
 
+  billableWeights: (->
+    @get('staffWeights').filter (person) ->
+      person.percentage > 0
+  ).property('staffWeights')

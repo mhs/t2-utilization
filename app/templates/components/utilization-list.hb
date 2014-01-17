@@ -1,17 +1,20 @@
-<div class="staffList">
-  <div class="number-container">
-    <span class="numbers">{{property.length}}</span>
+{{#with this as container}}
+  <div class="staffList">
+    <div class="number-container">
+      <span class="numbers">{{property.length}}</span>
+    </div>
+  {{title}}
   </div>
-{{title}}
-</div>
-
-<ul>
-  {{#each property}}
-  <li>{{name}}
+  <ul>
+    {{#each person in list}}
+      <li>{{person.name}}
+      {{#if container.showPercentages}}
         <div class="percent-bar">
-          <div class="percentage">{{percentage}}%</div>
-          <div class="indicator"></div>
+          <div class="percentage">{{person.percentage}}%</div>
+          <div class="indicator" {{bind-attr style="person.width"}} ></div>
         </div>
-    </li>
-  {{/each}}
-</ul>
+      {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+{{/with}}

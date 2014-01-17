@@ -29,5 +29,7 @@ App.WeightsTransform = DS.Transform.extend
     # use 'percentage' instead of 'percent' because
     # our broke-ass Handlebars thinks `this.percent` should
     # invoke the `percent` helper, FFS. Fixed in 1.3
-    result.pushObject({ name: name, percentage: percent }) for name, percent of weights
+    for name, percent of weights
+      obj = Ember.Object.create { name: name, percentage: percent }
+      result.pushObject(obj)
     result
