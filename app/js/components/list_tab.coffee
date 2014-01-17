@@ -10,9 +10,12 @@ App.ListTabComponent = Ember.Component.extend
 
   click: (evt) ->
     @sendAction('select', @get('item'))
+    false
 
   mouseEnter: (evt) ->
     @sendAction('enter', @get('item'))
+    false
 
   mouseLeave: (evt) ->
     @sendAction('leave', @get('item'))
+    false
