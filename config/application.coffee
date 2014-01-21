@@ -40,6 +40,11 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend 'application
       files:
         "generated/template/handlebars.js": "<%= files.template.handlebars %>"
 
+  uglify:
+    options:
+      beautify:
+        ascii_only: true
+
   env:
     config:
       env: process.env['APP_ENV'] || "dev"
