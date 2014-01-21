@@ -1,12 +1,11 @@
 App.Snapshot = DS.Model.extend
   snapDate: DS.attr('date')
-  staff: DS.hasMany('person')
-  overhead: DS.hasMany('person')
-  billable: DS.hasMany('person')
-  unassignable: DS.hasMany('person')
-  assignable: DS.hasMany('person')
-  billing: DS.hasMany('person')
-  non_billing: DS.hasMany('person')
+  staffWeights: DS.attr('weights')
+  unassignableWeights: DS.attr('weights')
+  assignableWeights: DS.attr('weights')
+  billingWeights: DS.attr('weights')
+  nonBillingWeights: DS.attr('weights')
+  utilization: DS.attr('number')
   office_id: DS.attr('string')
 
   formattedSnapDate:((key, string) ->
@@ -16,11 +15,12 @@ App.Snapshot = DS.Model.extend
     moment(@get('snapDate')).format("YYYY-MM-DD")
   ).property('snapDate')
 
+  overheadWeights: (->
+    @get('staffWeights').filter (person) ->
+      person.percentage < 100
+  ).property('staffWeights')
 
-  utilization:(->
-    assignables = @get('assignable.length')
-    if assignables > 0
-      Math.round(100.0 * @get('billing.length') / @get('assignable.length'))
-    else
-      0
-  ).property('billing','assignable')
+  billableWeights: (->
+    @get('staffWeights').filter (person) ->
+      person.percentage > 0
+  ).property('staffWeights')

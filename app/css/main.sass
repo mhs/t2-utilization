@@ -184,7 +184,6 @@ li
   line-height: 32px
   font-size: 14px
   padding-left: 28px
-  border-bottom: 1px dashed gray
 
 .week-label
   +border
@@ -290,8 +289,8 @@ svg circle, .billing-line
     min-width: 45px
 
 .office-by-office, .office-title
-  @include bold-font
-  @include clearfix
+  +bold-font
+  +clearfix
   +border
   text-transform: uppercase
   background-color: #fff
@@ -315,7 +314,25 @@ svg circle, .billing-line
 
   li
     font-size: 18px
-    padding: 5px
+    margin: 15px 0 0
+    padding: 0
+
+.percent-bar
+  +border
+  float: right
+  background: $mid-gray
+  color: white
+  width: 300px
+  text-align: right
+
+  .percentage
+    padding: 0 5px
+    float: right
+
+  .indicator
+    +border
+    padding: 16px 0
+    background: $dark-gray
 
 .utilization-header
   +border
