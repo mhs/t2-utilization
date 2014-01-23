@@ -52,7 +52,7 @@ npm install
 lineman run
 ```
 
-And then visit the page at [localhost:8000](http://localhost:8000) to verify that it works.
+And then visit the page at [localhost:7000](http://localhost:7000) to verify that it works.
 
 
 ## Deployment
