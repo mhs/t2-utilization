@@ -2,10 +2,12 @@
 
 The t2-utilization project is one of a series of clients that makes use of the [T2 API](https://github.com/neo/t2-api) to
 show information we need to manage our business.  In particular, this app presents daily utilization data that
-is capture inside T2 in snapshot form.  The leadership of the company uses utilization metrics to understand how
+is captured inside T2 in snapshot form.  The leadership of the company uses utilization metrics to understand how
 healthy we are as a business.
 
 ### What is Utilization Anyway?
+
+`TODO: update this to reflect partial allocations`
 
 Over time, the company has calculated utilization metrics in a few different ways. After much debate, we have
 arrived at a definition we are comfortable with.  To understand this definition, you need to understand how
@@ -55,6 +57,21 @@ And then visit the page at [localhost:8000](http://localhost:8000) to verify tha
 
 ## Deployment
 
-This app is deployed to http://t2-utilization.herokuapp.com using the lineman buildpack.
-It runs in productoni as http://t2utilization.neo.com
+Both production and staging use the lineman buildpack and the
+[user-env-compile](https://devcenter.heroku.com/articles/labs-user-env-compile) experimental option.
+
+NOTE: because the files are rendered during slug compiliation, changing config variables will not work
+until the code is redeployed.
+
+Production environment:
+* Git URI: git@heroku.com:t2-utilization.git
+* Host: t2utilization.neo.com
+* Heroku env - API_HOST: http://t2.neo.com
+* Heroku env - BUILDPACK_URL: http://github.com/testdouble/heroku-buildpack-lineman.git
+
+Staging environment:
+* Git URI: git@heroku.com:t2utilization-staging.git
+* Host: t2utilization-staging.neo.com
+* Heroku env - API_HOST: http://t2-staging.neo.com
+* Heroku env - BUILDPACK_URL: http://github.com/testdouble/heroku-buildpack-lineman.git
 
