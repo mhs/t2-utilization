@@ -1,10 +1,10 @@
 App.Snapshot = DS.Model.extend
   snapDate: DS.attr('date')
-  staffWeights: DS.attr('weights')
-  unassignableWeights: DS.attr('weights')
-  assignableWeights: DS.attr('weights')
-  billingWeights: DS.attr('weights')
-  nonBillingWeights: DS.attr('weights')
+  staff: DS.attr('weights')
+  unassignable: DS.attr('weights')
+  assignable: DS.attr('weights')
+  billing: DS.attr('weights')
+  nonBilling: DS.attr('weights')
   utilization: DS.attr('number')
   office_id: DS.attr('string')
 
@@ -16,11 +16,11 @@ App.Snapshot = DS.Model.extend
   ).property('snapDate')
 
   overheadWeights: (->
-    @get('staffWeights').filter (person) ->
+    @get('staff').filter (person) ->
       person.percentage < 100
-  ).property('staffWeights')
+  ).property('staff')
 
   billableWeights: (->
-    @get('staffWeights').filter (person) ->
+    @get('staff').filter (person) ->
       person.percentage > 0
-  ).property('staffWeights')
+  ).property('staff')

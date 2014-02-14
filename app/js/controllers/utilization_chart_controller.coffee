@@ -34,7 +34,7 @@ App.UtilizationChartController = Ember.ArrayController.extend
     if hovering
       key = hovering.get('key')
     else
-      key = 'staffWeights'
+      key = 'staff'
     console.log(key)
     all_paths = [".billing", ".nonbilling", ".unavailable", ".overhead"]
 
@@ -52,10 +52,10 @@ App.UtilizationChartController = Ember.ArrayController.extend
   ).observes('hovering')
 
   dimmingList:
-    staffWeights: [""]
+    staff: [""]
     overheadWeights: [".billing", ".nonbilling", ".unavailable"]
     billableWeights: [".overhead"]
-    billingWeights: [".nonbilling", ".unavailable", ".overhead"]
-    nonBillingWeights: [".billing", ".unavailable", ".overhead"]
-    assignableWeights: [".unavailable", ".overhead"]
-    unassignableWeights: [".billing", ".nonbilling", ".overhead"]
+    billing: [".nonbilling", ".unavailable", ".overhead"]
+    nonBilling: [".billing", ".unavailable", ".overhead"]
+    assignable: [".unavailable", ".overhead"]
+    unassignable: [".billing", ".nonbilling", ".overhead"]
