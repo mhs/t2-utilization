@@ -39,11 +39,10 @@ App.ListsController = Ember.ArrayController.extend
       selected: true
       filter: -> true
     Ember.Object.create
-      key: 'overheadWeights'
-      property: 'staff'
+      key: 'overhead'
       displayName: 'Overhead'
       showPercentages: true
-      filter: (person) -> person.percentage < 100
+      filter: -> true
     Ember.Object.create
       key: 'billableWeights'
       property: 'staff'
@@ -58,7 +57,7 @@ App.ListsController = Ember.ArrayController.extend
     Ember.Object.create
       key: 'nonBilling'
       displayName: 'Non-Billing'
-      showPercentages: false
+      showPercentages: true
       filter: -> true
     Ember.Object.create
       key: 'unassignable'
