@@ -46,7 +46,7 @@ App.OfficeController = Ember.ObjectController.extend
   isEditingDate: false
 
   officeQueryId: (->
-    if @get('slug') == 'overview' then null else @get('id')
+    if @get('slug') == 'company-wide' then null else @get('id')
   ).property("slug")
 
   switchDate: (date) ->
