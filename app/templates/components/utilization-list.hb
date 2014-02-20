@@ -4,6 +4,7 @@
       <span class="numbers">{{property.length}}</span>
     </div>
   {{title}}
+  <p class="subtitle">{{explanation}}</p>
   </div>
   <ul>
     {{#each person in list}}
@@ -11,7 +12,7 @@
       {{#if container.showPercentages}}
         <div class="percent-bar">
           <div class="percentage">{{person.percentage}}%</div>
-          <div class="indicator" {{bind-attr style="person.width"}} ></div>
+          <div {{bind-attr style="person.width"}} {{bind-attr class=":indicator person.overallocated"}} ></div>
         </div>
       {{/if}}
       </li>

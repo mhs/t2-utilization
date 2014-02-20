@@ -154,6 +154,12 @@ h1
   border-top: 4px solid #C6C6C6
   border-bottom: 4px solid #C6C6C6
 
+  .subtitle
+    +regular-font
+    color: #999
+    font-size: .7em
+    margin: -5px 0 0 35px
+
   .numbers
     @include bold-font
     color: #fff
@@ -333,6 +339,8 @@ svg circle, .billing-line
     +border
     padding: 16px 0
     background: $dark-gray
+    &.overallocated
+      background: #ff9481
 
 .utilization-header
   +border
@@ -350,12 +358,12 @@ svg circle, .billing-line
 
   ul
     li
-      +bold-font
+      +regular-font
       color: white
-      width: 14.2857%
+      width: 12.5%
       background: gray
       float: left
-      font-size: 18px
+      font-size: 16px
       text-align: center
       padding: 0
       border-bottom: none

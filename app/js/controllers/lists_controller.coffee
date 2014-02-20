@@ -14,9 +14,7 @@ App.ListsController = Ember.ArrayController.extend
     # filter with the selected list's filter function if needed
     selected = @get('selected')
     return [] unless selected
-    property = selected.get('property') || selected.get('key')
-    list = @get('snapshot').get(property)
-    list.filter(selected.get('filter'))
+    list = @get('snapshot').get(selected.get('key'))
   ).property('selected', 'snapshot')
 
   snapshot: Ember.computed.alias('controllers.snapshot.model')
@@ -37,37 +35,41 @@ App.ListsController = Ember.ArrayController.extend
       displayName: 'Staff'
       showPercentages: false
       selected: true
-      filter: -> true
+      explanation: "All employees"
     Ember.Object.create
       key: 'overhead'
       displayName: 'Overhead'
       showPercentages: true
-      filter: -> true
+      explanation: "Some or all time is non-billable"
     Ember.Object.create
-      key: 'billableWeights'
-      property: 'staff'
+      key: 'billable'
       displayName: 'Billable'
       showPercentages: true
-      filter: (person) -> person.percentage > 0
+      explanation: "Expected to do client work some or all of the time"
     Ember.Object.create
       key: 'billing'
       displayName: 'Billing'
       showPercentages: true
-      filter: -> true
+      explanation: "Allocated to work for which a client is billed"
     Ember.Object.create
       key: 'nonBilling'
       displayName: 'Non-Billing'
       showPercentages: true
-      filter: -> true
+      explanation: "Doing work for which no client is billed"
     Ember.Object.create
       key: 'unassignable'
       displayName: 'Unassignable'
       showPercentages: false
-      filter: -> true
+      explanation: "Out on personal time"
     Ember.Object.create
       key: 'assignable'
       displayName: 'Assignable'
       showPercentages: true
-      filter: -> true
+      explanation: "Billable and not on personal time"
+    Ember.Object.create
+      key: 'overallocated'
+      displayName: 'Overallocated'
+      showPercentages: true
+      explanation: "Capacity above billable capacity allocated to projects"
     ]
 
