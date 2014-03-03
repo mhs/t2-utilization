@@ -53,9 +53,11 @@ App.UtilizationChartController = Ember.ArrayController.extend
 
   dimmingList:
     staff: [""]
-    overheadWeights: [".billing", ".nonbilling", ".unavailable"]
-    billableWeights: [".overhead"]
+    overhead: [".billing", ".nonbilling", ".unavailable"]
+    billable: [".overhead"]
     billing: [".nonbilling", ".unavailable", ".overhead"]
     nonBilling: [".billing", ".unavailable", ".overhead"]
     assignable: [".unavailable", ".overhead"]
     unassignable: [".billing", ".nonbilling", ".overhead"]
+    overallocated: [""]
+

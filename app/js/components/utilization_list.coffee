@@ -3,6 +3,11 @@ App.UtilizationListComponent = Ember.Component.extend
 
   list: (->
     @get('property').map (person) ->
-      person.set('width', "width: #{person.percentage}%")
+      if person.percentage > 100
+        percent = 100
+        person.set('overallocated', true)
+      else
+        percent = person.percentage
+      person.set('width', "width: #{percent}%")
       person
   ).property('property')

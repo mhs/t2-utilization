@@ -6,5 +6,5 @@
   </ul>
 </div>
 
-{{utilization-list property=list showPercentages=selected.showPercentages title=selected.displayName}}
+{{utilization-list property=list showPercentages=selected.showPercentages title=selected.displayName explanation=selected.explanation}}
 

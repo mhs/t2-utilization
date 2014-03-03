@@ -58,6 +58,11 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend 'application
         { expand: true, cwd: "vendor/", src: "img/**/*.*", dest: "dist/css/" }
         { expand: true, cwd: "app/",    src: "img/**/*.*", dest: "dist/css/" }
       ]
+    dev:
+      files: [ # vendor first, so 'app' wins any collisions
+        { expand: true, cwd: "vendor/", src: "img/**/*.*", dest: "generated/css/" }
+        { expand: true, cwd: "app/",    src: "img/**/*.*", dest: "generated/css/" }
+      ]
 
   watch:
     handlebars:

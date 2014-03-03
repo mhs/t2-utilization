@@ -1,10 +1,14 @@
 App.Snapshot = DS.Model.extend
   snapDate: DS.attr('date')
   staff: DS.attr('weights')
+  nonBillable: DS.attr('weights')
   unassignable: DS.attr('weights')
-  assignable: DS.attr('weights')
   billing: DS.attr('weights')
   nonBilling: DS.attr('weights')
+  overhead: DS.attr('weights')
+  assignable: DS.attr('weights')
+  overallocated: DS.attr('weights')
+  billable: DS.attr('weights')
   utilization: DS.attr('number')
   office_id: DS.attr('string')
 

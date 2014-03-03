@@ -3,8 +3,8 @@ App.OfficesRoute = Ember.Route.extend
   model: ->
     @store.push 'office',
       id: 1000
-      name: 'Overview'
-      slug: 'overview'
+      name: 'Company-wide'
+      slug: 'company-wide'
     @store.find('office')
 
   setupController: (controller, model)->
@@ -20,7 +20,7 @@ App.getOfficeSummary = (slugName, params) ->
     else
       snap_date = params.snap_date
 
-    if office.get('slug') == 'overview'
+    if office.get('slug') == 'company-wide'
       officeId = null
     else
       officeId = office.get('id')
