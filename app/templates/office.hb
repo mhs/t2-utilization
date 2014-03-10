@@ -1,12 +1,18 @@
 <div id="content">
   <header>
       <section class="nav-bar">
-        {{view App.SelectOffice content=offices
-                                optionLabelPath="content.name"
-                                optionValuePath="content.id"
-                                selection=selectedOffice
-                                data-test="offices"
-                                class="white-button office-select"}}
+        <div class="faux-select">
+          <div class="faux-select-box">
+            <span class="faux-select-selected">{{name}}</span>
+            <span class="faux-select-graphic">&#x25BE;</span>
+          </div>
+          {{view App.SelectOffice content=offices
+                                  optionLabelPath="content.name"
+                                  optionValuePath="content.id"
+                                  selection=selectedOffice
+                                  data-test="offices"
+                                  class="faux-select-element"}}
+        </div>
         {{view App.NavView}}
       </section>
   </header>
