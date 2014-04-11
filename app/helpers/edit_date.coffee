@@ -1,4 +1,3 @@
-debugger
 `import EditDate from 'utilization/views/edit_date'`
 
 EditDateHelper = ->
