@@ -1,3 +1,5 @@
+@import "bourbon/addons/retina-image";
+
 $blue: $blue;
 $white: white;
 
@@ -85,7 +87,7 @@ nav {
 }
 
 .logo {
-  @include retina-image(/css/img/logo, 100%);
+  @include retina-image("/logo", 100%);
   @include size(60 22);
   display: block;
   margin: 5px 6px 0 0;
