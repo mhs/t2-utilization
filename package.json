@@ -3,16 +3,37 @@
   "title": "Daily Utilization Reports for Neo",
   "version": "0.0.1",
   "private": true,
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "ember server",
+    "build": "ember build",
+    "test": "ember test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stefanpenner/ember-cli.git"
+  },
   "author": {
     "name": "Mike Doel",
     "company": "Neo"
   },
-  "dependencies": {
-    "grunt-ember-handlebars": "0.7.0",
-    "lineman": "0.15.1"
-  },
-  "engines": {
-    "node": "~>0.10.10",
-    "npm": "~>1.2.25"
+  "license": "MIT",
+  "devDependencies": {
+    "ember-cli" : "^0.0.20",
+    "loom-generators-ember-appkit": "~1.0.5",
+    "originate": "~0.1.5",
+    "loom": "~3.1.2",
+    "node-bourbon": "~1.0.0",
+    "broccoli-es6-concatenator": "0.1.2",
+    "broccoli": "0.5.0",
+    "broccoli-static-compiler": "0.1.2",
+    "broccoli-template": "0.1.0",
+    "broccoli-uglify-js": "0.1.1",
+    "broccoli-env": "0.0.1",
+    "broccoli-coffee": "0.1.0",
+    "broccoli-sass": "0.1.3"
   }
 }
