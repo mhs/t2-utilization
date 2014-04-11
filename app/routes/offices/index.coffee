@@ -1,5 +1,3 @@
-`import moment from 'moment'`
-
 getOfficeSummary = (slugName, params) ->
   offices = @modelFor('offices')
   office = offices.findProperty('slug', slugName)

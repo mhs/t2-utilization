@@ -1,4 +1,4 @@
-OfficesRoute = Ember.Route.extend
+Offices = Ember.Route.extend
   model: ->
     @store.push 'office',
       id: 1000
@@ -9,4 +9,4 @@ OfficesRoute = Ember.Route.extend
   setupController: (controller, model)->
     @controllerFor('offices').set('model', model)
 
-`export default OfficesRoute`
+`export default Offices`

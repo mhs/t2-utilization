@@ -1,5 +1,7 @@
 `import Resolver from 'ember/resolver'`
 
+Ember.MODEL_FACTORY_INJECTIONS = true
+
 App = Ember.Application.extend
   LOG_STACKTRACE_ON_DEPRECATION : true,
   LOG_BINDINGS                  : true,
