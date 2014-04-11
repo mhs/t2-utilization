@@ -1,3 +1,5 @@
+`import d3StackChart from 'utilization/utils/d3_stack_chart'`
+
 UtilizationChartController = Ember.ArrayController.extend
   needs: ['office', 'lists']
 
@@ -24,7 +26,7 @@ UtilizationChartController = Ember.ArrayController.extend
         ]
   ).property('model.@each')
 
-  chart: App.d3StackChart()
+  chart: d3StackChart()
 
   hovering: Ember.computed.alias('controllers.lists.hovering')
 
