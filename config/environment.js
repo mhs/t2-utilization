@@ -1,6 +1,7 @@
 module.exports = function(environment) {
   var ENV = {
     rootURL: '/',
+    navBarPath: '/api/v1/navbar',
     FEATURES: {
       // Here you can enable experimental featuers on an ember canary build
       // e.g. 'with-controller': true
