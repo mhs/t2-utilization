@@ -28,22 +28,21 @@
       <h3>Daily Utilization (Billing / Assignable)</h3>
     </div>
   </div>
-  {{outlet utilizationChart}}
+  {{outlet "utilizationChart"}}
   <div class="container">
     <div class="office-header">
       <h1>{{name}}</h1>
       <section id="calendarBar">
         <div class="calendar-date-selector">
           <i {{action 'decrementDate'}}><span class="arrow-left">&#59237;</span></i>
-          {{edit-date class="datepicker" action="confirmDate" value=formattedSnapDate escape-press="confirmDate"}}
           <i {{action 'incrementDate'}}><span class="arrow-right">&#59238;</span></i>
         </div>
       </section>
     </div>
     <div class="staff-lists">
-    {{outlet snapshot}}
+    {{outlet "snapshot"}}
       <div class="office-by-office">
-        {{outlet officeByOffice}}
+        {{outlet "officeByOffice"}}
       </div>
     </div>
   </div>
