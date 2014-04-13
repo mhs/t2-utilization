@@ -6,6 +6,7 @@ var compileES6 = require('broccoli-es6-concatenator');
 var validateES6 = require('broccoli-es6-import-validate');
 var pickFiles = require('broccoli-static-compiler');
 var mergeTrees = require('broccoli-merge-trees');
+var findBowerTrees = require('broccoli-bower');
 
 var env = require('broccoli-env').getEnv();
 var getEnvJSON = require('./config/environment');
@@ -48,7 +49,8 @@ module.exports = function (broccoli) {
     destDir: '/'
   });
 
-  var sourceTrees = [app, config, 'vendor'].concat(broccoli.bowerTrees());
+  var sourceTrees = [app, config, 'vendor'].concat(findBowerTrees());
+
   var appAndDependencies = mergeTrees(sourceTrees, { overwrite: true });
 
   // JavaScript
@@ -61,6 +63,7 @@ module.exports = function (broccoli) {
     'ember-data.js',
     'ember-resolver.js',
     'ember-shim.js',
+    'ember-load-initializers.js',
     'moment.js',
     'd3.js'
   ];
@@ -71,6 +74,7 @@ module.exports = function (broccoli) {
     loaderFile: 'loader/loader.js',
     ignoredModules: [
       'ember/resolver',
+      'ember/load-initializers',
       'ic-ajax'
     ],
     inputFiles: [
@@ -129,7 +133,7 @@ module.exports = function (broccoli) {
 
     tests = preprocessTemplates(tests);
 
-    sourceTrees = [tests, 'vendor'].concat(broccoli.bowerTrees());
+    sourceTrees = [tests, 'vendor'].concat(findBowerTrees());
     appAndDependencies = mergeTrees(sourceTrees, { overwrite: true });
 
     var testsJs = preprocessJs(appAndDependencies, '/', prefix);
@@ -137,6 +141,7 @@ module.exports = function (broccoli) {
     var validatedJs = validateES6(mergeTrees([app, tests]), {
       whitelist: {
         'ember/resolver': ['default'],
+        'ember/load-initializers': ['default'],
         'ember-qunit': [
           'globalize',
           'moduleFor',
@@ -162,6 +167,7 @@ module.exports = function (broccoli) {
       loaderFile: '_loader.js',
       ignoredModules: [
         'ember/resolver',
+        'ember/load-initializers',
         'ember-qunit'
       ],
       inputFiles: [

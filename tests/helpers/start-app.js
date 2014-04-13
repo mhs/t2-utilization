@@ -1,4 +1,5 @@
-var Router = require('t2-utilization/router')['default'];
+var Application = require('utilization/app')['default'];
+var Router = require('utilization/router')['default'];
 
 function startApp(attrs) {
   var App;
@@ -15,7 +16,7 @@ function startApp(attrs) {
   });
 
   Ember.run(function(){
-    App = require('t2-utilization/main')['default']('t2-utilization', attributes);
+    App = Application.create(attributes);
     App.setupForTesting();
     App.injectTestHelpers();
   });
