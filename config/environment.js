@@ -9,7 +9,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.apiHost = "http://jiveturkey.local:5000";
+    ENV.apiHost = "http://localhost:5000";
   }
 
   if (environment === 'production') {
