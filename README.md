@@ -26,7 +26,7 @@ the office (vacation, etc.) are not factored into the utilizatin equations.
 
 ## Contributing
 
-This is an [ember.js](http://emberjs.com) application that uses [lineman.js](https://github.com/testdouble/lineman) as a build tool.
+This is an [ember.js](http://emberjs.com) application that uses [ember-cli](http://iamstef.net/ember-cli/) as a build tool.
 And as mentioned above, it uses the [T2 API](https://github.com/neo/t2-api).  So, there's a bit to do to get going with a local build.
 
 ### Get the API up and running
@@ -36,20 +36,28 @@ that are in the [README for that project](https://github.com/neo/t2-api) and out
 both the API (usually started via foreman and running on port 5000) and the t2-utilization app (run via lineman on port 8000) to
 execute the project locally.
 
-### Install node, npm, and lineman
+### Install node, npm, and ember-cli
 
 You'll need to have a reasonably modern version of [node.js](http://nodejs.org/) and lineman installed.
 
 ```bash
 brew install node
-npm install -g lineman
+npm install -g ember-cli
 npm install
 ```
+
+### Install vendor packages
+```bash
+bower install
+touch vendor/_loader.js
+```
+
+Unfortunately, due to [an issue with broccoli-es6-concatenator](https://github.com/joliss/broccoli-es6-concatenator/issues/9), ember-cli needs a `_loader.js` file in vendor. Vendor is in the gitignore, so you need to create that file manually.
 
 ### Fire it up
 
 ```
-lineman run
+ember server
 ```
 
 And then visit the page at [localhost:7000](http://localhost:7000) to verify that it works.
