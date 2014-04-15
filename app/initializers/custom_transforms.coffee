@@ -30,17 +30,12 @@ WeightsTransform = DS.Transform.extend
       result.pushObject(obj)
     result
 
+initializer =
+  name: 'customTransforms'
+  after: 'transforms'
+  initialize: (container, application) ->
+    application.register('transform:date', DateTransform)
+    application.register('transform:raw', RawTransform)
+    application.register('transform:weights', WeightsTransform)
 
-`
-export default {
-  name: 'customTransforms',
-  after: 'transforms',
-  initialize: function(container, application) {
-    application.register('transform:date', DateTransform);
-    application.register('transform:raw', RawTransform);
-    application.register('transform:weights', WeightsTransform);
-  }
-}
-`
-
-
+`export default initializer`
