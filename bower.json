@@ -1,7 +1,6 @@
 {
   "name": "t2-utilization",
   "dependencies": {
-    "entypo": "*",
     "underscore": "~1.6.0",
     "d3": "~3.3.10",
     "moment": "~2.1.0",
