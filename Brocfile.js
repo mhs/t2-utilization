@@ -65,7 +65,8 @@ module.exports = function (broccoli) {
     'ember-resolver.js',
     'ember-load-initializers.js',
     'moment.js',
-    'd3.js'
+    'd3.js',
+    'pikaday.js'
   ];
 
   var applicationJs = preprocessJs(appAndDependencies, '/', prefix);

@@ -35,6 +35,7 @@
       <section id="calendarBar">
         <div class="calendar-date-selector">
           <i {{action 'decrementDate'}}><span class="arrow-left">&#59237;</span></i>
+          {{edit-date value=formattedSnapDate dateSelected="confirmDate"}}
           <i {{action 'incrementDate'}}><span class="arrow-right">&#59238;</span></i>
         </div>
       </section>
