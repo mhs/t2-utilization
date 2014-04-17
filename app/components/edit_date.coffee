@@ -1,8 +1,6 @@
 EditDateComponent = Ember.TextField.extend
   classNames: ["datepicker"]
-  attributeBindings:['readonly']
   readonly: true
-  _picker: null
 
   didInsertElement: ->
     currentYear = (new Date()).getFullYear()
@@ -10,9 +8,6 @@ EditDateComponent = Ember.TextField.extend
       field: @$()[0]
       format: 'YYYY-MM-DD'
       yearRange: [currentYear-3, currentYear+3]
-      onSelect: =>
-        picker = @get('_picker')
-        @sendAction('dateSelected', picker.toString())
-    this.set("_picker", picker)
+      onSelect: => @sendAction('dateSelected', picker.toString())
 
 `export default EditDateComponent`
