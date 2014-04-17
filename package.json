@@ -40,6 +40,6 @@
     "broccoli-template": "0.1.1",
     "broccoli-replace": "0.1.5",
     "broccoli-coffee": "*",
-    "broccoli-sass": "*"
+    "broccoli-ruby-sass": "*"
   }
 }
