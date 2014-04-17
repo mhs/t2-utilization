@@ -37,7 +37,6 @@ UtilizationChartController = Ember.ArrayController.extend
       key = hovering.get('key')
     else
       key = 'staff'
-    console.log(key)
     all_paths = [".billing", ".nonbilling", ".unavailable", ".overhead"]
 
     dimmed_paths = @get('dimmingList')[key]
