@@ -49,10 +49,7 @@ npm install
 ### Install vendor packages
 ```bash
 bower install
-touch vendor/_loader.js
 ```
-
-Unfortunately, due to [an issue with broccoli-es6-concatenator](https://github.com/joliss/broccoli-es6-concatenator/issues/9), ember-cli needs a `_loader.js` file in vendor. Vendor is in the gitignore, so you need to create that file manually.
 
 ### Fire it up
 

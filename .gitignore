@@ -10,3 +10,4 @@ libpeerconnection.log
 .sass-cache/
 /tmp
 /vendor
+!/vendor/_loader.js
