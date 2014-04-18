@@ -49,7 +49,10 @@ npm install
 ### Install vendor packages
 ```bash
 bower install
+gem install sass
 ```
+
+We use `broccol-ruby-sass` for sass compilation, so you'll need the sass gem to be installed.
 
 ### Fire it up
 
