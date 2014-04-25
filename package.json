@@ -25,7 +25,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "broccoli-env": "0.0.1",
     "ember-cli": "0.0.23",
     "originate": "~0.1.5",
     "broccoli-template": "~0.1.1",
