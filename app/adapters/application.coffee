@@ -12,6 +12,6 @@ ApplicationAdapter = DS.ActiveModelAdapter.extend
   ajaxError: (jqXHR) ->
     return unless jqXHR.getAllResponseHeaders()
     auth = @container.lookup("controller:authentication")
-    auth.logout("auth")
+    auth.logout()
 
 `export default ApplicationAdapter`
