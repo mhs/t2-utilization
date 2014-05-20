@@ -49,10 +49,13 @@ npm install
 bower install
 ```
 
-We use `broccol-ruby-sass` for sass compilation, so you'll need the sass gem to be installed.
+### Ruby Dependency
 
-```bash
-gem install sass -v 3.3.7
+Yeah, I know, it's a JavaScript app. However, sass is rad, and we like to use it. Oh, what was that? Did you say use `libsass`? I am aware of it's existence and it seems to lag behind. The majority of people using sass seem to be developing against the latest version and I'd like to use their packages. **tl;dr** Install you some ruby (see `.ruby-version`).
+
+```
+rbenv rehash (or rvm magical cd)
+bundle install
 ```
 
 ### Fire it up
