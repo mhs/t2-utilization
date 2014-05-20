@@ -1,0 +1,58 @@
+<div id="content">
+  <header>
+      <section class="nav-bar">
+        <div class="faux-select">
+          <div class="faux-select-box">
+            <span class="faux-select-selected">{{name}}</span>
+            <span class="faux-select-graphic">&#x25BE;</span>
+          </div>
+          {{view "select-office" content=offices
+                                  optionLabelPath="content.name"
+                                  optionValuePath="content.id"
+                                  selection=selectedOffice
+                                  data-test="offices"
+                                  class="faux-select-element"}}
+        </div>
+        {{view "nav"}}
+      </section>
+  </header>
+
+  <div class="legend">
+    <div class="overhead indicator">
+      <h3>Overhead</h3>
+    </div>
+    <div class="unavailable indicator">
+      <h3>Unavailable</h3>
+    </div>
+    <div class="non-billing indicator">
+      <h3>Non-Billing</h3>
+    </div>
+    <div class="billing indicator">
+      <h3>Billing</h3>
+    </div>
+    <div class="utilization indicator">
+      <h3>Daily Utilization (Billing / Assignable)</h3>
+    </div>
+  </div>
+  {{outlet "utilizationChart"}}
+  <div class="container">
+    <div class="office-header">
+      <h1>{{name}}</h1>
+      <section id="calendarBar">
+        <div class="calendar-date-selector">
+          <i {{action 'decrementDate'}}><span class="arrow-left">&#59237;</span></i>
+          {{edit-date value=formattedSnapDate dateSelected="confirmDate"}}
+          <i {{action 'incrementDate'}}><span class="arrow-right">&#59238;</span></i>
+        </div>
+      </section>
+    </div>
+    <div class="staff-lists">
+    {{outlet "snapshot"}}
+      <div class="office-by-office">
+        {{outlet "officeByOffice"}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
