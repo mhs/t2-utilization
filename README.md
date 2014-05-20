@@ -32,9 +32,7 @@ And as mentioned above, it uses the [T2 API](https://github.com/neo/t2-api).  So
 ### Get the API up and running
 
 The first thing to do is to clone the T2 API project locally and get it up and running.  Details for how to do
-that are in the [README for that project](https://github.com/neo/t2-api) and outside the scope of this README.  Note that you need
-both the API (usually started via foreman and running on port 5000) and the t2-utilization app (run via lineman on port 8000) to
-execute the project locally.
+that are in the [README for that project](https://github.com/neo/t2-api) and outside the scope of this README.  Note that you need both the API (usually started via foreman and running on port 5000) and the t2-utilization app (port 8000) to execute the project locally.
 
 ### Install node, npm, and ember-cli
 
@@ -60,10 +58,10 @@ gem install sass
 ### Fire it up
 
 ```
-ember serve --port 7000
+ember serve --port 8000
 ```
 
-And then visit the page at [localhost:7000](http://localhost:7000) to verify that it works.
+And then visit the page at [localhost:8000](http://localhost:8000) to verify that it works.
 
 
 ## Deployment
