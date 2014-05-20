@@ -52,7 +52,7 @@ bower install
 We use `broccol-ruby-sass` for sass compilation, so you'll need the sass gem to be installed.
 
 ```bash
-gem install sass
+gem install sass -v 3.3.7
 ```
 
 ### Fire it up

@@ -33,7 +33,7 @@
     "body-parser": "^1.2.0",
     "glob": "^3.2.9",
 
-    "broccoli-coffee": "*",
-    "broccoli-ruby-sass": "*"
+    "broccoli-coffee": "0.1.0",
+    "broccoli-ruby-sass": "0.0.1"
   }
 }
