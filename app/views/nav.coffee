@@ -1,3 +1,6 @@
+`import Ember from "ember";`
+`import ENV from "t2-utilization/config/environment";`
+
 NavView = Ember.View.extend
   tagName: 'nav'
   templateName: 'nav'
@@ -6,7 +9,7 @@ NavView = Ember.View.extend
   bottom_links: null
 
   didInsertElement: () ->
-    url = window.ENV.apiHost + window.ENV.navBarPath
+    url = ENV.apiHost + ENV.navBarPath
     self = this
     $.getJSON(url, {}, (data, status, xhr) ->
       top_links = Ember.ArrayProxy.create({content: data.top})
