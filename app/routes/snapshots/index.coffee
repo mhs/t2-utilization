@@ -1,3 +1,5 @@
+`import Ember from 'ember'`
+
 SnapshotsIndexRoute = Ember.Route.extend
 
   model: ->

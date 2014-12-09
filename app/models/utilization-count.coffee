@@ -1,3 +1,5 @@
+`import DS from "ember-data";`
+
 UtilizationCount = DS.Model.extend
   date: DS.attr('date')
   staff_count: DS.attr('number')

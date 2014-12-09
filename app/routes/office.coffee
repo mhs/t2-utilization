@@ -1,3 +1,5 @@
+`import Ember from 'ember';`
+
 getOfficeSummary = (slugName, params) ->
   offices = @modelFor('offices')
   office = offices.findProperty('slug', slugName)
@@ -53,4 +55,4 @@ OfficeRoute = Ember.Route.extend
     switchDate: (d) ->
       @get('controller').switchDate(d)
 
-`export default OfficeRoute`
+`export default OfficeRoute;`

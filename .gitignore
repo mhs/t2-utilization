@@ -1,13 +1,19 @@
-.DS_Store
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-#ignore node_modules, as the node project is not "deployed" per se: http://www.mikealrogers.com/posts/nodemodules-in-git.html
-/node_modules
-
+# compiled output
 /dist
-/.sass-cache
-/generated
-libpeerconnection.log
-.sass-cache/
 /tmp
+
+# dependencies
+/node_modules
+/bower_components
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
+npm-debug.log
+testem.log
+.DS_STORE
 /vendor
-!/vendor/_loader.js

@@ -1,10 +1,8 @@
+`import DS from "ember-data";`
+`import ENV from "t2-utilization/config/environment";`
+
 ApplicationAdapter = DS.ActiveModelAdapter.extend
   namespace: 'api/v1'
-  host: window.ENV.apiHost
+  host: ENV.apiHost
 
-  ajaxError: (jqXHR) ->
-    return unless jqXHR.getAllResponseHeaders()
-    auth = @container.lookup("controller:authentication")
-    auth.logout()
-
-`export default ApplicationAdapter`
+`export default ApplicationAdapter;`

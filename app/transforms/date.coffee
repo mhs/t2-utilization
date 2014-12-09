@@ -1,3 +1,5 @@
+`import DS from "ember-data";`
+
 DateTransform = DS.Transform.extend
   deserialize: (string) ->
     if !string

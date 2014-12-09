@@ -1,3 +1,5 @@
+`import DS from "ember-data";`
+
 Snapshot = DS.Model.extend
   snapDate: DS.attr('date')
   staff: DS.attr('weights')

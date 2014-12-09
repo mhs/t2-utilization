@@ -1,3 +1,5 @@
+`import DS from "ember-data";`
+
 RawTransform = DS.Transform.extend
   deserialize: (serialized) ->
     serialized

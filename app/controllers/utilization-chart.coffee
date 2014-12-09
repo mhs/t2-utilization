@@ -1,4 +1,4 @@
-`import d3StackChart from 'utilization/utils/d3-stack-chart'`
+`import d3StackChart from 't2-utilization/utils/d3-stack-chart'`
 
 UtilizationChartController = Ember.ArrayController.extend
   needs: ['office', 'lists']

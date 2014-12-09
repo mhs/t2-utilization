@@ -1,3 +1,5 @@
+`import Ember from 'ember'`
+
 getOfficeSummary = (slugName, params) ->
   offices = @modelFor('offices')
   office = offices.findProperty('slug', slugName)
