@@ -6,6 +6,7 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    navBarPath: '/api/v1/navbar',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -34,7 +35,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.apiHost = "http://localhost:5000";
-    ENV.navBarUrl = "/api/v1/navbar";
+    // ENV.navBarUrl = "/api/v1/navbar";
     ENV.contentSecurityPolicy['connect-src'] = "'self' http://localhost:5000";
   }
 
@@ -52,7 +53,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.apiHost = "http://t2.neo.com";
-    ENV.navBarUrl = "/api/v1/navbar";
+    // ENV.navBarUrl = "/api/v1/navbar";
     ENV.contentSecurityPolicy['connect-src'] = "'self' https://api.mixpanel.com http://custom-api.local";
   }
 
