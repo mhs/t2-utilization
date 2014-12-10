@@ -1,3 +1,5 @@
+`import Ember from 'ember'`
+
 ApplicationRoute = Ember.Route.extend
   beforeModel: (transition) ->
     auth = @controllerFor('authentication')

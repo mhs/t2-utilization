@@ -1,3 +1,5 @@
+`import DS from "ember-data";`
+
 Allocation = DS.Model.extend
   startDate: DS.attr('date')
   endDate: DS.attr('date')

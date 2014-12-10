@@ -1,3 +1,5 @@
+`import ENV from "t2-utilization/config/environment";`
+
 AuthenticationController = Ember.ObjectController.extend
   init: -> @set('accessToken', localStorage.accessToken)
 
@@ -32,7 +34,7 @@ AuthenticationController = Ember.ObjectController.extend
     Ember.$.ajax({
       # ASYNC MY BALLS
       async: false,
-      url: "#{window.ENV.apiHost}/api/v1/profile.json",
+      url: "#{ENV.apiHost}/api/v1/profile.json",
       dataType: 'json',
       data: {},
       success: (data) ->
@@ -43,7 +45,7 @@ AuthenticationController = Ember.ObjectController.extend
   ).property('accessToken')
 
   _redirectTo: (url) ->
-    uri = window.ENV.apiHost + url
+    uri = ENV.apiHost + url
     uri += "?return_url=" + escape(location.href)
     location.href = uri
 

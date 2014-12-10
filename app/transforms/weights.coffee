@@ -1,3 +1,5 @@
+`import DS from "ember-data";`
+
 WeightsTransform = DS.Transform.extend
   deserialize: (weights) ->
     result = []

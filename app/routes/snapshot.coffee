@@ -1,3 +1,5 @@
+`import Ember from 'ember'`
+
 SnapshotRoute = Ember.Route.extend
   model: (params) ->
     snapshots = @modelFor('snapshots')

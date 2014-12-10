@@ -1,3 +1,5 @@
+`import DS from "ember-data";`
+
 UtilizationSummary = DS.Model.extend
   snapshot: DS.belongsTo 'snapshot'
   utilizationCounts: DS.hasMany 'utilizationCount'

@@ -1,3 +1,5 @@
+`import Ember from 'ember';`
+
 Offices = Ember.Route.extend
   model: ->
     @store.push 'office',
@@ -9,4 +11,4 @@ Offices = Ember.Route.extend
   setupController: (controller, model)->
     @controllerFor('offices').set('model', model)
 
-`export default Offices`
+`export default Offices;`
