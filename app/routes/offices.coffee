@@ -6,7 +6,9 @@ Offices = Ember.Route.extend
       id: 1000
       name: 'Company-wide'
       slug: 'company-wide'
-    @store.find('office')
+    @store.find('office').then (offices) ->
+      offices.filter (office) ->
+        return !office.get('deleted')
 
   setupController: (controller, model)->
     @controllerFor('offices').set('model', model)
