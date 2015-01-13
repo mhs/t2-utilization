@@ -24,7 +24,8 @@ module.exports = function(environment) {
       'font-src': "'self' http://fonts.gstatic.com", // Allow fonts to be loaded from http://fonts.gstatic.com
       'img-src': "'self' https://t2-data.s3.amazonaws.com/ http://s3.amazonaws.com/",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
-      'media-src': "'self'"
+      'media-src': "'self'",
+      'connect-src': "'self'"
     }
   };
 
@@ -35,7 +36,6 @@ module.exports = function(environment) {
     ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.apiHost = "http://localhost:5000";
-    // ENV.navBarUrl = "/api/v1/navbar";
     ENV.contentSecurityPolicy['connect-src'] = "'self' http://localhost:5000";
   }
 
@@ -53,9 +53,12 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.apiHost = "http://t2.neo.com";
-    // ENV.navBarUrl = "/api/v1/navbar";
     ENV.contentSecurityPolicy['connect-src'] = "'self' https://api.mixpanel.com http://custom-api.local";
   }
+
+  if (environment === 'staging') {
+    ENV.apiHost = "http://t2api-staging.neo.com";
+  };
 
   return ENV;
 };
